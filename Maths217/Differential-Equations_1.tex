@@ -1,0 +1,379 @@
+\documentclass{report}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{anyfontsize}
+\usepackage{sectsty}
+
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\begin{tikzpicture}[overlay,remember picture]
+
+% Background color
+\fill[
+black!2]
+(current page.south west) rectangle (current page.north east);
+
+% Rectangles
+\shade[
+left color=Dandelion, 
+right color=Dandelion!40,
+transform canvas ={rotate around ={45:($(current page.north west)+(0,-6)$)}}] 
+($(current page.north west)+(0,-6)$) rectangle ++(9,1.5);
+
+\shade[
+left color=lightgray,
+right color=lightgray!50,
+rounded corners=0.75cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}]
+($(current page.north west)+(0.5,-10)$) rectangle ++(15,1.5);
+
+\shade[
+left color=lightgray,
+rounded corners=0.3cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}] ($(current page.north west)+(1.5,-9.55)$) rectangle ++(7,.6);
+
+\shade[
+left color=orange!80,
+right color=orange!60,
+rounded corners=0.4cm,
+transform canvas ={rotate around ={45:($(current page.north)+(-1.5,-3)$)}}]
+($(current page.north)+(-1.5,-3)$) rectangle ++(9,0.8);
+
+\shade[
+left color=red!80,
+right color=red!80,
+rounded corners=0.9cm,
+transform canvas ={rotate around ={45:($(current page.north)+(-3,-8)$)}}] ($(current page.north)+(-3,-8)$) rectangle ++(15,1.8);
+
+\shade[
+left color=orange,
+right color=Dandelion,
+rounded corners=0.9cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(4,-15.5)$)}}]
+($(current page.north west)+(4,-15.5)$) rectangle ++(30,1.8);
+
+\shade[
+left color=RoyalBlue,
+right color=Emerald,
+rounded corners=0.75cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(13,-10)$)}}]
+($(current page.north west)+(13,-10)$) rectangle ++(15,1.5);
+
+\shade[
+left color=lightgray,
+rounded corners=0.3cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(18,-8)$)}}]
+($(current page.north west)+(18,-8)$) rectangle ++(15,0.6);
+
+\shade[
+left color=lightgray,
+rounded corners=0.4cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(19,-5.65)$)}}]
+($(current page.north west)+(19,-5.65)$) rectangle ++(15,0.8);
+
+\shade[
+left color=OrangeRed,
+right color=red!80,
+rounded corners=0.6cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(20,-9)$)}}] 
+($(current page.north west)+(20,-9)$) rectangle ++(14,1.2);
+
+% Year
+\draw[ultra thick,gray]
+($(current page.center)+(5,2)$) -- ++(0,-3cm) 
+node[
+midway,
+left=0.25cm,
+text width=5cm,
+align=right,
+black!75
+]
+{
+{\fontsize{25}{30} \selectfont \bf CLASS \\[10pt] NOTES}
+} 
+node[
+midway,
+right=0.25cm,
+text width=6cm,
+align=left,
+orange]
+{
+{\fontsize{72}{86.4} \selectfont 2020}
+};
+
+% Title
+\node[align=center] at ($(current page.center)+(0,-5)$) 
+{
+{\fontsize{60}{72} \selectfont {{Differential Equation}}} \\[1cm]
+{\fontsize{16}{19.2} \selectfont \textcolor{orange}{ \bf Rohit Raj Karki }}\\[3pt]
+Kathmandu University\\[3pt]
+Dhulikhel};
+\end{tikzpicture}
+
+\newpage% or \cleardoublepage
+% \pdfbookmark[<level>]{<title>}{<dest>}
+\pdfbookmark[section]{\contentsname}{toc}
+\tableofcontents
+\pagebreak
+
+\chapter{First Order Differential Equations}
+\section{Linear Differential Equation}
+A differential equation of form \begin{equation}y'+p(x)y = r(x)
+\end{equation}
+where 
+\begin{align*}
+      & p,q\text{ are functions of x alone or constants.}                                                                        
+\end{align*}  
+ \parinf
+ \textbf{Characterstics Features}
+\begin{itemize}
+\item If q = 0, the equation (1.1) becomes $y'+p(x)y = r(x) $ is homogeneous; otherwise it is
+non-homogeneous.
+\end{itemize}
+
+\vspace{0.5cm}
+\qs{}{Solve the following equation $y'+p(x)y = r(x)$.}
+\solve{
+\begin{align*}
+\Rightarrow & y' = -p(x)y \\
+\Rightarrow & \int_{}{} \frac{dy}{y} = \int{}{} -pdx\\
+\Rightarrow & ln|y| = \int_{}{} -pdx +c\\
+\Rightarrow & y = e^{\int_{}{} pdx} \cdot e^{c_1}\\
+\Rightarrow & y=c_2\cdot e^{\int_{}{} pdx}\\
+\end{align*}
+}
+\qs{}{
+Solve the following equation $y' + py = r$
+}
+\solve{
+$${
+\frac{dy}{dx} = py -r =0
+}$$
+$${
+dy + (py -r)dx = 0 
+}$$
+\begin{equation}
+(py-r)dx + 1dy = 0 
+\end{equation}
+\begin{center}
+Comparing with $Pdx + Qdy = 0$ \\
+P = py-r\\
+Q = 1\\
+\end{center}
+$${
+\frac{\partial P}{\partial y} = P_y = p, \frac{\partial Q}{\partial x} = Q_y = 0
+}$$
+\begin{center}
+Eqn (1.2) is note exact \\
+Let F = F(x) be the integrating factor of eqn (1.2)\\
+Then $F = e^{\int_{}{} R(x)dx}$
+\end{center}
+where 
+\begin{center}
+$R(x) = \frac{1}{Q}\cdot(P_y-Q_x)$
+\end{center}
+$${
+R(x)=p
+}$$
+$${F = e^{int_{}{} pdx}
+}$$
+\begin{center}
+Multiplying eqn (1.1) with integrating factor
+\end{center}
+\begin{align*}
+\Rightarrow & e^{\int_{}{}pdx}(y' + py) = re^{\int_{}{}pdx}\\
+\Rightarrow & (ye^{\int_{}{}pdx})' = re^{\int_{}{}pdx}\\
+\Rightarrow & ye^{\int_{}{}pdx} = \int{}{}re^{\int_{}{}pdx} + C\\
+\Rightarrow & y = e^{\int{}{}-pdx}\Big[\int_{}{}re^{\int_{}{}pdx} + C\Big]
+\end{align*}
+where
+\begin{center}
+h = $\int_{}{} pdx$\\
+The equation is not exact.
+\end{center}
+}
+
+\qs{}{Solve the following equation $y'-y = e^{2x}$.}
+\solve{
+\begin{align*}
+y&=e^{-x}\Big[\int_{}{}re^{x}dx + c\Big]\\
+&=e^{-x}\Big[re^{x} + c\big]
+\end{align*}
+}
+
+\qs{}{Solve the following equation $x^{3}y' + 3x^{2}y = \frac{1}{x}$}
+\solve{}
+
+
+\section{Bernoulli Equation}
+\dfn{}{The equation of the following form is called Bernoulli equation \begin{equation}y' +p(x)y = r(x)y^a
+\end{equation} 
+If a = 0 or a = 1, equation (1.3) is linear otherwise equation is non linear.\\
+}
+\ex{}{
+Consider the non linear equation
+\begin{equation}
+y' + py = ry^a
+\end{equation} 
+Let $u(x) = [y(x)]^{1-a}$
+\begin{equation}
+u' =(1-a) y^{-a} \cdot y'
+\end{equation} 
+}
+\section{Newton's Law of Cooling}
+\thm{}{
+The temperature rate of change of the body over respective to time is
+\begin{align*}
+& \frac{dT}{dt}  \propto (T-T_0)
+\end{align*}
+where 
+\begin{center}
+T = f(t)
+\end{center}
+\begin{align*}
+\Rightarrow & \frac{dT}{dt} = k(T-T_0)\\
+\Rightarrow & \int_{}{} \frac{dT}{T-T_0} = \int_{}{} kdt\\
+\Rightarrow & ln|T-T_0| = kt + c^*\\
+\Rightarrow & T = T_0 +ce^{kt}
+\end{align*}
+}
+
+\qs{}{
+A body temperature T is instantly 200\degree C is immersed in a liquid when temperature $T_0$ is constantly.
+}
+\solve{
+We have, \\
+\begin{align*}
+& \frac{dT}{dt} = k(T-T_0)\\
+& \text{initial temperature}(T_0) = 100\degree C\\
+& \text{at, t = 0, T = 200\degree C }\\
+\Rightarrow & 200 = 100 + ce^{kt}\\
+\Rightarrow & ce^{kt} = 100\\
+& \therefore c = 100
+\end{align*}
+Now,
+\begin{align*}
+& \text{at t = 1 min, T = 100\degree C}\\
+\Rightarrow & 150 = 100 + ce^{kt}\\
+\Rightarrow & 50 = 100e^{kt}\\
+\Rightarrow & e^k = \frac{1}{2}\\
+\therefore & k = ln|\frac{1}{2}|
+\end{align*}
+Now, 
+
+Temperature at 2 min is 
+\begin{align*}
+T & = T_0 + ce^{kt}\\
+& = 100 + 100ce^{2ln|\frac{1}{2}|}\\
+& = 100(1 + ce^{ln|\frac{1}{2}|^{2}})\\
+& = 100(1 + \frac{1}{4})\\
+& = 125\degree C
+\end{align*}
+}
+
+\section{Electrical Circuits}
+\begin{itemize}
+\item Ohm's Law
+\dfn{}{
+Voltage drop across resistor is directly proportional to current.
+$$
+E_R \propto T
+$$
+$$
+E_R = IR
+$$
+}
+\item Henry Law
+\dfn{}{
+Voltage drop across inductor is directly proportional to rate of change of current.
+\begin{align*}
+V_L & \propto \frac{dI}{dt}\\
+V_L & = L\frac{dI}{dt}
+\end{align*}
+}
+\item Capcitor Law
+\dfn{}{
+\begin{align*}
+E_e & \propto charge(Q)\\
+E_e & = \frac{1}{C} * Q
+\end{align*}
+}
+\item Kirchoff's Law
+\dfn{}{
+      The algebraic sum of Voltage drop around the charge loop across the closed loop equals zero.
+\begin{align*}
+\sum IR = 0
+\end{align*}
+}
+\end{itemize}
+
+
+
+
+
+\chapter{Second Order Differential Equation}
+\section{Second Order Linear Differential Equation:}
+A differential equation of form 
+\begin{align*}
+y'' + p(x)y' + q(x)y = r
+\end{align*}
+\begin{align}
+\Rightarrow y'' + py' + qy = r
+\end{align}
+
+\nt{
+It is called second order differential equation because it has maximum two degree and it has two solutions namely $y_1 \text{and} y_2$.
+}
+
+\qs{}{Show that the solutions of the following equation $y'' - y =0$ are $y_1 = e^{-x} , y_2 = e^{x}$.}
+
+\solve{
+Let the solution of the equation is $e^{x}$ then \\
+$$
+y'' = e^{x} and y = e^{x}
+$$
+\begin{align*}
+\Rightarrow & e^{x} - e^{x} = 0 \\
+\therefore & 0 =0 \text{(True)} 
+\end{align*}
+
+\hspace{0.7 cm}
+Let the solution of the equation is $e^{-x}$ then \\
+$$
+y'' = e^{-x} and y = e^{-x}
+$$
+\begin{align*}
+\Rightarrow & e^{-x} - e^{-x} = 0 \\
+\therefore & 0 =0 \text{(True)} 
+\end{align*}
+}
+
+
+\thm{}{
+      The fundamental theorem of Homogeneous Equation(Superposition Principle or Linearity Principle)\\ \\
+      Statement: If $y_1$ and $y_2$ be the solutions of the differential equation $y''+ py' + qy = 0$, then $ y = c_1y_1 + c_2y_2 $.\\
+      Proof: Substituting $y = c_1y_1 + c_2y_2 $, we find
+      \begin{align*}
+      y' = c_1y_1' + c_2y_2'\\
+      y'' = c_1y_1'' + c_2y_2''\\
+      \end{align*}
+      \hspace*{1cm}Substituting y and its derivative in eqn \\
+      \begin{align*}
+      & (c_1y_1'' + c_2y_2'') + p(c_1y_1' + c_2y_2') + q(c_1y_1 + c_2y_2) = 0\\
+      \Rightarrow & c_1y'' + c_2y'' + pc_1y_1' + pc_2y_2' +qc_1y_1 + c_2y_2 = 0\\
+      \Rightarrow & c_1(y_1'' + py_1' + qy_1) + c_2(y_2'' + py_2' + qy_2) = 0\\
+      \therefore & 0 = 0 (True)
+      \end{align*}
+      }
+\nt{This theorem is only applicable to the homogeneous equation.}
+\end{document}

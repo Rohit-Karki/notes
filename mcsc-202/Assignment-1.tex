@@ -1,0 +1,1056 @@
+\documentclass{report}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{anyfontsize}
+\usepackage{sectsty}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\begin{tikzpicture}[overlay,remember picture]
+
+% Background color
+\fill[
+black!2]
+(current page.south west) rectangle (current page.north east);
+
+% Rectangles
+\shade[
+left color=Dandelion, 
+right color=Dandelion!40,
+transform canvas ={rotate around ={45:($(current page.north west)+(0,-6)$)}}] 
+($(current page.north west)+(0,-6)$) rectangle ++(9,1.5);
+
+\shade[
+left color=lightgray,
+right color=lightgray!50,
+rounded corners=0.75cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}]
+($(current page.north west)+(0.5,-10)$) rectangle ++(15,1.5);
+
+\shade[
+left color=lightgray,
+rounded corners=0.3cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}] ($(current page.north west)+(1.5,-9.55)$) rectangle ++(7,.6);
+
+\shade[
+left color=orange!80,
+right color=orange!60,
+rounded corners=0.4cm,
+transform canvas ={rotate around ={45:($(current page.north)+(-1.5,-3)$)}}]
+($(current page.north)+(-1.5,-3)$) rectangle ++(9,0.8);
+
+\shade[
+left color=red!80,
+right color=red!80,
+rounded corners=0.9cm,
+transform canvas ={rotate around ={45:($(current page.north)+(-3,-8)$)}}] ($(current page.north)+(-3,-8)$) rectangle ++(15,1.8);
+
+\shade[
+left color=orange,
+right color=Dandelion,
+rounded corners=0.9cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(4,-15.5)$)}}]
+($(current page.north west)+(4,-15.5)$) rectangle ++(30,1.8);
+
+\shade[
+left color=RoyalBlue,
+right color=Emerald,
+rounded corners=0.75cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(13,-10)$)}}]
+($(current page.north west)+(13,-10)$) rectangle ++(15,1.5);
+
+\shade[
+left color=lightgray,
+rounded corners=0.3cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(18,-8)$)}}]
+($(current page.north west)+(18,-8)$) rectangle ++(15,0.6);
+
+\shade[
+left color=lightgray,
+rounded corners=0.4cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(19,-5.65)$)}}]
+($(current page.north west)+(19,-5.65)$) rectangle ++(15,0.8);
+
+\shade[
+left color=OrangeRed,
+right color=red!80,
+rounded corners=0.6cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(20,-9)$)}}] 
+($(current page.north west)+(20,-9)$) rectangle ++(14,1.2);
+
+% Year
+\draw[ultra thick,gray]
+($(current page.center)+(5,2)$) -- ++(0,-3cm) 
+node[
+midway,
+left=0.25cm,
+text width=5cm,
+align=right,
+black!75
+]
+{
+{\fontsize{25}{30} \selectfont \bf ASSIGNMENT\\[10pt] FIRST}
+} 
+node[
+midway,
+right=0.25cm,
+text width=6cm,
+align=left,
+orange]
+{
+{\fontsize{72}{86.4} \selectfont 2023}
+};
+
+% Title
+\node[align=center] at ($(current page.center)+(0,-5)$) 
+{
+{\fontsize{60}{72} \selectfont {{MCSC-202}}} \\[1cm]
+{\fontsize{16}{19.2} \selectfont \textcolor{orange}{ \bf Rohit Raj Karki }}\\[3pt]
+CE-2020(21)\\[3pt]
+Kathmandu University};
+\end{tikzpicture}
+
+\pagebreak
+
+\textbf{1.Compute and find the absolute, relative and percentage errors.:}\\
+i) $1.3254 + 0.56 + 27.2879604 + 0.0375$\\
+\solve{
+    \begin{align*}
+        \text{Exact Value} &= 29.2108604\\
+        \text{Approximate Value} & = 29.12\\
+        \text{Absolute Error} & = |x-x_1|\\
+        & = |29.2108604 - 29.12|\\
+        & = 0.0008608\\        
+        \text{Relative Error}& = \frac{\text{Absolute Error}}{x}\\
+        & = \frac{0.0008608}{29.2108604}\\
+        & = 0.0000294\\
+        \text{Percentage Error} &= E_R*100 \% \\
+        & = 0.00294\%
+    \end{align*}
+}
+ii) $4.6 * 0.128$\\
+\solve{
+    \begin{align*}
+        \text{Exact Value} &= 0.5888\\
+        \text{Approximate Value} & = 0.59\\
+        \text{Absolute Error} & = |x-x_1|\\
+        & = |0.5888-0.59|\\
+        & = 0.0012\\        
+        \text{Relative Error} & = \frac{\text{Absolute Error}}{x}\\
+        & = \frac{0.0012}{0.5888}\\
+        & = 0.002038\\
+        \text{Percentage Error} &= E_R*100 \% \\
+        & = 0.2038\%
+    \end{align*}
+}
+iii) $\frac{0.995*1.53}{1.592}$\\
+\solve{
+    \begin{align*}
+        \text{Exact Value} &= 0.95625\\
+        \text{Approximate Value} & = \frac{0.995*1.53}{1.592}=\frac{1.52235}{1.592}=\frac{1.522}{1.592}=0.9560301508=0.9560\\
+        \text{Absolute Error} & = |x-x_1|\\
+        & = |0.95625-0.9560|\\
+        & = 0.00025\\        
+        \text{Relative Error} & = \frac{\text{Absolute Error}}{x}\\
+        & = \frac{0.00025}{0.95625}\\
+        & = 0.0002614\\
+        \text{Percentage Error} &= E_R*100 \% \\
+        & = 0.02614\%
+    \end{align*}
+}
+iv) $\sqrt[]{2.01} -\sqrt[]{2}$\\
+\solve{
+    \begin{align*}
+        \text{Exact Value} &= 0.003531125=0.003531\\
+        \text{Approximate Value} & = 0.0036\\
+        \text{Absolute Error} & = |x-x_1|\\
+        & = |0.003531-0.0036|\\
+        & = 0.000069\\        
+        \text{Relative Error} & = \frac{\text{Absolute Error}}{x}\\
+        & = \frac{ 0.000069}{0.003531}\\
+        & = 0.01954\\
+        \text{Percentage Error} &= E_R*100 \% \\
+        & = 1.95\%
+    \end{align*}
+}
+\textbf{2.Compute the maximum absolute and relative error in $u =\frac{5x^3y^2}{z^5} \text{ when } x = 3.25, y = 45.129 \text{ and } z =0.577.$}\\
+\solve{
+    \begin{align*}
+        u &  =\frac{5x^3y^2}{z^5}\\
+        u &= \frac{5*(3.25)^3*(45.929)^2}{0.577^5}\\
+        &=5465783.71\\
+        \delta u_{max} = ?\\
+    \end{align*}
+    \begin{align*}
+        \frac{\partial u}{\partial x} & = \frac{15x^2y^2}{z^5}=\frac{15*(3.25)^2*(45.929)^2}{0.577^5} = 5045338.809\\
+        \frac{\partial u}{\partial y} & = \frac{10x^3y}{z^5}=\frac{10*(3.25)^3*(45.929)}{0.577^5} = 242229.3297\\
+        \frac{\partial u}{\partial z} & = \frac{-25x^3y^2}{z^6} = \frac{-25*(3.25)^3*(45.929)^2}{0.577^6}=-47363810.31\\
+    \end{align*}
+    $\delta x =\delta y = \delta z =0.0005$
+    \begin{align*}
+        \delta u & = |\frac{\partial u}{\partial x} \delta x|+|\frac{\partial u}{\partial y} \delta y|+|\frac{\partial u}{\partial z} \delta z|\\
+        & = |5045338.809*0.0005|+ |242229.3297*0.0005| + |-47363810.31*0.0005|\\
+        & = 26325.68922
+    \end{align*}
+    \begin{align*}
+        \text{Relative Error} = \frac{\delta u}{u} & = \frac{26325.68922}{5465783.71}\\
+        & = 0.004816
+    \end{align*}
+}
+\textbf{3. Calculate a real root correct to four significant figures of the following equations:}\\
+a)Bisection method: \\
+i)$ x^3 - 4x - 9 = 0, (2, 3)$\\
+\solve{
+    $f(x) = x^3 - 4x - 9 = 0$\\
+    $Tolerance = 4$ decimal places\\
+    $\epsilon = 1/2 * 10-4 = 0.0005$
+    \begin{center}
+        \begin{tabular}{ |c|c|c|c|c|c| } 
+         \hline
+          & $f (a) < 0(-) $ & $f (b) > 0(+)$ & & &\\
+         \hline
+         \hline
+         n & b & b&x& f(x)&Remarks\\
+         \hline        
+        1&2.5 & 3& 2.5 & -3.375&$f(x)<0$\\
+        \hline
+        2&2.5 & 3& 2.75 & 0.79688&$f(x)>0$\\
+        \hline
+        3&2.625 & 2.75& 2.625 & -1.4121&$f(x)<0$\\
+        \hline
+        4&2.6875 & 2.75& 2.6875 & -0.33911&$f(x)<0$\\
+        \hline
+        5&2.6875 & 2.75& 2.7188 & 0.22092 & $f(x)>0$\\
+        \hline
+        6&2.7031 & 2.7188& 2.7031 & -0.061077&$f(x)<0$\\
+        \hline
+        7&2.7031 & 2.7188& 2.7109 & 0.079423&$f(x)>0$\\
+        \hline
+        8&2.7031 & 2.7109& 2.707 & 0.0090492&$f(x)>0$\\
+        \hline
+        9& 2.7051 & 2.707& 2.7051 & -0.026045&$f(x)<0$\\
+        \hline
+        10&2.7061 & 2.707& 2.7061 & -0.0085056&$f(x)<0$\\
+        \hline
+        11& 2.7061 & 2.707& 2.7065 & 0.0002699&$f(x)>0$\\
+        \hline
+        12&2.7063 & 2.7065& 2.7063 & -0.0041183&$f(x)<0$\\
+        \hline
+        13&2.7064 & 2.7065& 2.7064 & -0.0019243&$f(x)<0$\\
+        \hline
+        14&2.7065 & 2.7065& 2.7065 & -0.00082725&$f(x)<0$\\
+        \hline
+        \end{tabular}
+    \end{center}
+}
+ii)$2xcos(2x) - (x + 1)2 = 0, (-3, -2)$\\
+\solve{
+    $f(x) =2xcos(2x) - (x + 1)2 = 0, (-3, -2)$\\
+    $Tolerance = 4$ decimal places\\
+    $\epsilon = 1/2 * 10-4 = 0.0005$
+    \begin{center}
+        \begin{tabular}{ |c|c|c|c|c|c| } 
+         \hline
+          & $f (a) < 0(-) $ & $f (b) > 0(+)$ & & &\\
+         \hline
+         \hline
+         n & b & b&x& f(x)&Remarks\\
+         \hline   
+         1 & -3 & -2& -2.5 & -3.6683&$f(x)<0$\\
+\hline
+2 & -2.5 & -2& -2.25 & -0.61392&$f(x)<0$\\
+\hline
+3&-2.25 & -2& -2.125 & 0.63025&$f(x)>0$\\
+\hline
+4&-2.25 & -2.125& -2.1875 & 0.038076&$f(x)>0$\\
+\hline
+5 & -2.25 & -2.1875& -2.2188 & -0.28084&$f(x)<0$\\
+\hline
+6 & -2.2188 & -2.1875& -2.2031 & -0.11956&$f(x)<0$\\
+\hline
+7 & -2.2031 & -2.1875& -2.1953 & -0.040279&$f(x)<0$\\
+\hline
+8 & -2.1953 & -2.1875& -2.1914 & -0.00098519&$f(x)<0$\\
+\hline
+9&-2.1914 & -2.1875& -2.1895 & 0.018574&$f(x)>0$\\
+\hline
+10&-2.1914 & -2.1895& -2.1904 & 0.0088019&$f(x)>0$\\
+\hline     
+        \end{tabular}
+    \end{center} 
+}
+b)False Position: \\
+i) $xlog_{10} x - 1.2 = 0, (2,3)$ \\
+\solve{
+    \begin{align*}
+        f(2) & = xlog_{10} x - 1.2 = 0\\
+        & = 2*log_{10} *2 - 1.2\\
+        & = -0.597<0\\    
+        f(3) & = xlog_{10} x - 1.2 \\
+        & = 3*log_{10} *3 - 1.2\\
+        & = 0.23136>0
+    \end{align*}
+    $Tolerance = 4$ decimal places\\
+    $\epsilon = 1/2 * 10^{-4} = 0.0005$
+    \begin{center}
+        \begin{tabular}{ |c|c|c|c|c|c| }          
+         \hline
+          a(-) & b(+)& f(a)&f(b)&c&f(c)\\         
+         & & & & $c= \frac{af(b)-bf(a)}{f(b)-f(a)}$   &\\
+         \hline 
+            2&3& -0.59794&0.23136&2.72102&-0.01709\\
+            \hline
+            2.72102& 3 & -0.01709 & 0.23136& 2.74021& -0.00038\\
+            \hline
+            2.74021& 3 & -0.00038 & 0.23136& 2.74063& -0.000014\\
+            \hline
+            2.74063& 3 & -0.000014 & 0.23136& 2.74064& -0.000005\\
+            \hline
+        \end{tabular}
+    \end{center}        
+    $\therefore$The required root is 2.74064.
+}
+ii) $x^3 - 4x - 9 = 0, (2,3)$\\
+\solve{
+    \begin{align*}
+        f(2) & = x^3 - 4x - 9 = 0\\
+        & = 2^3-4*2-9\\
+        & = <0\\    
+        f(3) & = x^3 - 4x - 9 \\
+        & = 3^3-4*3-9\\
+        & = >0
+    \end{align*}
+        \begin{center}            
+        \begin{tabular}{ |c|c|c|c|c|c|c| }          
+            \hline
+            n & a(-) & b(+)&c& f(a)&f(b)&f(c)\\         
+            & & & $c= \frac{af(b)-bf(a)}{f(b)-f(a)}$ & & &\\
+            \hline 
+            1&2&3&2.6&-9&6&-1.824\\
+            \hline
+            2&2.6&3&2.84&-1.824&6&2.5463\\
+            \hline
+            3&2.6&2.84&2.656&-1.824&2.5463&-0.88853\\
+            \hline
+            4&2.656&2.84&2.7328&-0.88853&2.5463&0.47726\\
+            \hline
+            5&2.656&2.7328&2.6758&-0.88853&0.47726&-0.54435\\
+            \hline
+            6&2.6758&2.7328&2.7129&-0.54435&0.47726&0.11428\\
+            \hline
+            7&2.6758&2.7129&2.6956&-0.54435&0.11428&-0.19617\\
+            \hline
+            8&2.6956&2.7129&2.7099&-0.19617&0.11428&0.060066\\
+            \hline
+            9&2.6956&2.7099&2.7046&-0.19617&0.060066&-0.034645\\
+            \hline
+            10&2.7046&2.7099&2.7086&-0.034645&0.060066&0.037824\\
+            \hline
+            11&2.7046&2.7086&2.7061&-0.034645&0.037824&-0.0081667\\
+            \hline
+            12&2.7061&2.7086&2.7073&-0.0081667&0.037824&0.013806\\
+            \hline
+            13&2.7061&2.7073&2.7063&-0.0081667&0.013806&-0.0042666\\
+            \hline
+            14&2.7063&2.7073&2.7067&-0.0042666&0.013806&0.0024487\\
+            \hline
+            15&2.7063&2.7067&2.7064&-0.0042666&0.0024487&-0.0026815\\
+            \hline
+    \end{tabular}
+    \end{center} 
+}
+% c)Secant method: \\
+% i) $e^x + x^2 - x - 4 = 0, (0,4)$\\
+% \solve{
+
+% }
+% ii)$x3 + x2 + x + 7 = 0, (-3, -2)$\\
+% \solve{
+
+% }
+d)Newton-Raphson:
+i)$ e^x - cotx = 0, x_0 = 0.8$\\
+\solve{
+    $a = 0.8$
+    \begin{align*}
+        f(a)&  =  e^x - cotx\\
+        & =  e^{0.8} - cot(0.8)\\
+        & = 1.2543\\
+        f'(a) &= e^x+(cosec(x))^2\\
+        & =  e^{0.8}+(cosec(0.8))^2\\
+        & = 4.1688
+    \end{align*}
+    \begin{align*}
+        \begin{tabular}{ |c|c|c|c|c| }          
+            \hline
+            a& f(a) & f'(a) & c &f(c) \\       
+            \hline\hline
+            0.8&1.2543&4.1688&0.49912&-0.18711\\
+            \hline
+            0.49912&-0.18708&6.0121&0.53023&-0.00650\\
+            \hline
+            0.53023&-0.0064888&5.6091&0.53139&-0.000004\\
+            \hline
+        \end{tabular}
+    \end{align*}
+}
+ii)$1.05 - 1.04x + lnx = 0, x_0 = -1$\\
+\solve{
+    $a= -1$
+    \begin{align*}
+        f(a)&  = 1.05 - 1.04x + lnx\\
+        & = 1.05 - 1.04*-1 + ln(-1)\\
+        & = Undefined\\
+        f'(a) & = -1.04+\frac{1}{x}\\
+        & = -2.04
+    \end{align*}
+    There is no solution.    
+}
+e)Fixed point iteration: \\
+i)$xe^x = 1, x0 = 1 $\\
+\solve{
+\begin{align*}
+    f(x) & xe^x - 1\\
+    x&=\frac{1}{e^x}\\
+    \text{we choose} g(x) = \frac{1}{e^x}
+\end{align*}    
+\begin{align*}
+    \begin{tabular}{|c|c|}
+        \hline 
+        x&g(x)\\
+        \hline \hline    
+1&0.367879\\
+\hline
+0.367879&0.692201\\
+\hline
+0.692201&0.500474\\
+\hline
+0.500474&0.606244\\
+\hline
+0.606244&0.545396\\
+\hline
+0.545396&0.579612\\
+\hline
+0.579612&0.560115\\
+\hline
+0.560115&0.571143\\
+\hline
+0.571143&0.564879\\
+\hline
+0.564879&0.568429\\
+\hline
+0.568429&0.566415\\
+\hline
+0.566415&0.567557\\
+\hline
+0.567557&0.566909\\
+\hline
+0.566909&0.567276\\
+\hline
+0.567276&0.567068\\
+\hline
+0.567068&0.567186\\
+\hline
+0.567186&0.567119\\
+\hline
+    \end{tabular}
+\end{align*}
+$\therefore$ The required root is 0.5671.
+}
+ii) $cosx = 3x - 1, x_0 = 2$\\
+\solve{
+    \begin{align*}
+       & x  = \frac{cosx + 1}{3}\\
+        & \text{If } g(x) = \frac{cosx + 1}{3}\\
+        & g'(x)  = \frac{-1}{3}sinx<1
+    \end{align*}
+    \begin{align*}
+        &x = cos^{-1}(3x-1)\\
+        & \text{If } g(x) =  cos^{-1}(3x-1)\\
+        & g'(x) = \frac{-1}{\sqrt[]{1-(3x-1)^2}}*3\\
+        & = \frac{-3}{\sqrt[]{6x-9x^2}}\\
+    \end{align*}
+    So we consider,
+    $g(x) = \frac{cosx + 1}{3}$
+
+    \begin{align*}
+        \begin{tabular}{|c|c|}
+            \hline 
+            x&g(x)\\
+            \hline \hline   
+            2&0.194618\\
+\hline
+0.194618&0.660374\\
+\hline
+0.660374&0.596588\\
+\hline
+0.596588&0.609086\\
+\hline
+0.609086&0.606724\\
+\hline
+0.606724&0.607173\\
+\hline
+0.607173&0.607088\\
+\hline
+0.607088&0.607104\\
+\hline
+0.607104&0.607101\\
+\hline
+0.607101&0.607102\\
+\hline
+0.607102&0.607102\\
+\hline
+        \end{tabular}
+    \end{align*}
+}
+\textbf{4. Use the Newton method and Generalized newton method to obtain a real root of the equation $(x + 2)3(x - 2) = 0 \text{ correct to } 0.0001 \text{ with initial guess }x_0 = 3$.}\\
+\solve{
+    \begin{align*}
+        \begin{tabular}{ |c|c|c|c| }          
+            \hline
+            a& f(a) & f'(a) & c  \\       
+            \hline\hline
+            3&125&200&2.375\\
+            \hline
+            2.375&31.403&105.27&2.0767\\
+            \hline
+            2.0767&5.197&71.577&2.0041\\
+            \hline
+            2.0041&0.2631&64.394&2\\
+            \hline
+            2&0.00080294&64.001&2\\
+            \hline
+        \end{tabular}
+    \end{align*}
+    \begin{center}
+        x = 2.00000
+    \end{center}
+}
+\textbf{5. Solve the following systems of nonlinear equations using Newton-Raphson method accurate to 3
+decimal places:}\\
+i) $x^2 + 4y^2 - 16 = 0, xy^2 - 4 = 0, x_0 = y_0 = 1.5$\\
+\solve{
+    \begin{align*}
+        & f(x,y) = x^2 + 4y^2 - 16 \\
+        & g(x,y) = xy^2 - 4 
+    \end{align*}
+    Then ,
+    \begin{align*}
+        &\frac{\partial f}{\partial x} = 2x\\
+        &\frac{\partial f}{\partial y} = 8y \\
+        & \frac{\partial g}{\partial x} = y^2 \\
+        & \frac{\partial g}{\partial y} = 2xy 
+    \end{align*}
+    \begin{align*}
+        \begin{tabular}{ |c|c|c|c|c|c|c|c|c|c| }          
+            \hline
+            x & y & f & g & $\frac{\partial f}{\partial x}$ & $\frac{\partial f}{\partial y}$ & $\frac{\partial g}{\partial x}$ & $\frac{\partial g}{\partial y}$ & D & $D_1$ \\
+            \hline\hline            
+            1.5&1.5&-4.75&-0.625&3&12&2.25&4.5&-13.5&13.875\\
+            \hline
+            0.472222&2.15278&2.7608&-1.81151&0.944444&17.2222&4.63445&2.03318&-77.8953&-36.8114\\
+            \hline
+0.944797&1.96656&0.362039&-0.346138&1.88959&15.7325&3.86735&3.716&-53.8212&-6.79094\\
+\hline
+1.07097&1.92839&0.0217473&-0.0173808&2.14195&15.4271&3.71869&4.13051&-48.5214&-0.357963\\
+\hline
+1.07835&1.92596&7.81236e-05&-6.2866e-05&2.1567&15.4077&3.70931&4.15371&-48.1934&-0.00129312\\
+\hline
+1.07838&1.92595&1.03156e-09&-8.28222e-10&2.15676&15.4076&3.70928&4.1538&-48.1922&-1.70458e-08\\
+\hline
+        \end{tabular}
+    \end{align*}
+    \begin{align*}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $D_2$ & nx & ny\\
+            \hline \hline
+            -8.8125&0.472222&2.15278\\
+            \hline
+            14.5057&0.944797&1.96656\\
+            \hline
+            2.05419&1.07097&1.92839\\
+            \hline
+            0.1181&1.07835&1.92596\\
+            \hline
+            0.000425368&1.07838&1.92595\\
+            \hline
+            5.61262e-09&1.07838&1.92595\\
+            \hline
+        \end{tabular}
+    \end{align*}
+}
+% ii)$x^2 - 2x - y + 0.5 = 0, x^2 + 4y^2 - 4 = 0, x_0 = 0, y_0 = 1$\\
+% \solve{}
+
+\textbf{6. Solve the following system of equations using iteration method correct to 3 significant figures.}\\
+i)$ x^2 - 2x - y + 0.5 = 0, x^2 + 4y^2 - 4 = 0, x_0 = 0, y_0 = 1$\\
+\solve{    
+    \begin{align*}
+        & f(x,y) =  x^2 - 2x - y + 0.5\\
+        & g(x,y) = x^2 + 4y^2 - 4 \\
+        & x = \frac{x^2 - y + 0.5}{2}\\
+        & y = \frac{4-x^2}{4}\\
+        & F(x,y) = \frac{x^2 - y + 0.5}{2}\\
+        & G(x,y) = \sqrt[]{\frac{4-x^2}{4}}=\frac{1}{2}(4-x^2)^1/2\\
+        & \frac{\partial F}{\partial x} = x \\
+        & \frac{\partial F}{\partial y} = -0.5 \\
+        & \frac{\partial G}{\partial y} =  \frac{x}{2\sqrt[]{4-x^2}}\\
+        & \frac{\partial G}{\partial y} = 0 
+    \end{align*}
+    At (0,1)
+    \begin{align*}
+        & |\frac{\partial F}{\partial x}| + |\frac{\partial F}{\partial y}| <1\\
+        & |\frac{\partial G}{\partial x}| + |\frac{\partial G}{\partial y}| <1
+    \end{align*}
+    So, Now,
+    \begin{align*}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            x&y&F(x,y)&G(x,y)\\
+            \hline\hline
+            0&1&-0.25&1\\
+            \hline
+            -0.25&1&-0.21875&0.9921\\
+            \hline
+            -0.2187&0.9921&-0.2221&0.9940\\
+            \hline
+            -0.2221&0.9940&-0.2223&0.9938\\
+            \hline
+            -0.2223&0.9938&-0.2222&0.9938\\
+            \hline
+            -0.2222&0.9938&-0.2222&0.9938\\
+            \hline
+        \end{tabular}
+    \end{align*}
+    
+    \begin{align*}
+        \therefore x =-0.2222\\
+        \therefore y =0.9938\\
+    \end{align*}
+    }
+ii)$ x^2 + y^2 + z^2 + 10x - 4 = 0, x^2 - y^2 + z^2 + 10y - 5 = 0, x^2 + y^2 - z^2 + 10z - 6 = 0$
+\solve{
+    \begin{align*}
+        & f(x,y,z) =x^2 + y^2 + z^2 + 10x - 4 = 0\\
+        & g(x,y,z) = x^2 - y^2 + z^2 + 10y - 5 = 0\\
+        & h(x,y,z) = x^2 + y^2 - z^2 + 10z - 6 = 0\\
+        & x= F(x,y,z) = \frac{4-x^2 - y^2 - z^2 }{10}\\
+        & y=G(x,y,z) = \frac{5-x^2 +y^2 - z^2 }{10}\\
+        & z=H(x,y,z) = \frac{6-x^2 - y^2 + z^2 }{10}
+    \end{align*}
+    \begin{align*}
+        & \frac{\partial F}{\partial x} = -0.2x & \frac{\partial F}{\partial y} &= -0.2y \\
+        & \frac{\partial F}{\partial z} = -0.2z & \frac{\partial G}{\partial x} &= -0.2x \\
+        & \frac{\partial G}{\partial y} =  0.2y & \frac{\partial G}{\partial z} &= 0.2z\\ 
+        & \frac{\partial H}{\partial x} = -0.2x & \frac{\partial H}{\partial y} &= -0.2y\\ 
+        & \frac{\partial H}{\partial z} = 0.2z & \\ 
+    \end{align*}
+    At (0,1)
+    \begin{align*}
+        & |\frac{\partial F}{\partial x}| + |\frac{\partial F}{\partial y}|+|\frac{\partial F}{\partial z}| <1\\
+        & |\frac{\partial G}{\partial x}| + |\frac{\partial G}{\partial y}|+|\frac{\partial G}{\partial z}| <1\\
+        & |\frac{\partial H}{\partial x}| + |\frac{\partial H}{\partial y}|+|\frac{\partial H}{\partial z}| <1
+    \end{align*}
+    \begin{align*}
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline
+            x&y&z&F(x,y)&G(x,y)&H\\
+            \hline\hline
+    0&0&0&0.4&0.5&0.6\\
+    \hline
+0.4&0.5&0.6&0.323&0.473&0.595\\
+\hline
+0.323&0.473&0.595&0.331792&0.476537&0.602597\\
+\hline
+0.331792&0.476537&0.602597&0.32997&0.475388&0.602595\\
+\hline
+0.32997&0.475388&0.602595&0.330201&0.475399&0.602825\\
+\hline
+0.330201&0.475399&0.602825&0.330157&0.475357&0.602836\\
+\hline
+        \end{tabular}
+    \end{align*}
+    \begin{align*}
+        & x=0.330201 \\
+        & y=0.475399 \\
+        & z=0.602825
+    \end{align*}
+}
+\textbf{7. Solve the following systems using LU decomposition method taking $l_{ii} = 1$}
+\begin{center}    
+    x + 2y + 3z = 14\\
+    2x + 20y + 26z = 120\\
+    3x + 26y + 70z = 265\\
+\end{center}
+\solve{
+    % \begin{equation}
+    %     A\vec{X}=\vec{B}
+    % \end{equation}
+    % where
+    % \begin{align*}    
+    %     A & = \Biggl[ \begin{matrix}
+    %         1& 2& 3\\
+    %         2& 20& 26\\
+    %         3& 26& 70
+    %     \end{matrix} \Biggr]    \\   
+    %     X & =\Biggl[ \begin{matrix}
+    %         x\\
+    %         y\\
+    %         z
+    %     \end{matrix} \Biggr]\\
+    %     B & =\Biggl[ \begin{matrix}
+    %         14\\
+    %         120\\
+    %         265
+    %     \end{matrix} \Biggr]   
+    % \end{align*}
+    % If A = LU\\
+    % Then equation 1 becomes \\
+    % $LU\vec{X} = \vec{b}$\\
+    % If we set 
+    % \begin{equation}U\vec{X} = \vec{Y} \end{equation}
+    % \begin{equation}L\vec{Y} = \vec{b} \end{equation}
+    % \begin{align*}    
+    %         A & = \begin{bmatrix}
+    %             u_{11}& u_{12}& u_{13}\\
+    %             L_{21}& L_{21}U_{21} +U_{22}& L_{21}U_{13} + U_{23}\\
+    %             L_{31}U_{11}& L_{31}U_{12} +L_{32}U_{22}& L_{31}U_{13} + L_{32}U_{23}+U_{33}                
+    %         \end{bmatrix} \\               
+    % \end{align*}
+
+    \begin{align*}
+        A = \begin{bmatrix}
+            1&2&3\\
+            2&20&26\\
+            3&26&70
+        \end{bmatrix}
+        B = \begin{bmatrix}
+            14\\120\\265
+        \end{bmatrix}
+    \end{align*}
+    Then $A = LU$
+    \begin{align*}
+        \begin{bmatrix}
+                1&2&3\\
+                2&20&26\\
+                3&26&70
+            \end{bmatrix} = 
+            \begin{bmatrix}
+                u_{11}& u_{12}& u_{13}\\
+                L_{21}& L_{21}U_{21} +U_{22}& L_{21}U_{13} + U_{23}\\
+                L_{31}U_{11}& L_{31}U_{12} +L_{32}U_{22}& L_{31}U_{13} + L_{32}U_{23}+U_{33}                
+            \end{bmatrix} \\ 
+    \end{align*}
+
+    \begin{align*}
+            &U_{11} = 1 &  U_{12} = 2\\
+            &U_{13} = 3 & L_{21} = 2\\
+            &L_{31} = \frac{3}{U_{11}} = \frac{3}{1} =3 
+        \end{align*}
+        2nd row,
+        \begin{align*}
+            U_{22} & = a_{22} - L_{21}U_{12}\\
+            & = 20 - 2*2\\
+            & = 16\\
+            U_{23} & = a_{23} - L_{21}U_{13}\\
+            & = 26 - 2*3\\
+            & = 20
+        \end{align*}
+        2nd col,
+        \begin{align*}
+            U_{22}L_{32} & = a_{32} - L_{31}U_{12}\\
+            & = \frac{26- 3*2}{16}\\
+            L_{32}& = 5/4\\       
+        \end{align*}
+        % 3rd row
+        % \begin{align*}
+        %     U_{33} &= a_{33}-L_{31}U_{13} - L_{32}U_{23}\\
+        %     & = 70 \\
+        %     & = 16
+        % \end{align*}
+
+        \begin{align*}
+            L = \begin{bmatrix}
+                1&0&0\\
+                2&1&0\\
+                3&\frac{5}{4}&1
+            \end{bmatrix}
+            U=\begin{bmatrix}
+                1&2&3\\
+                0&16&20\\
+                0&0&36
+            \end{bmatrix}
+        \end{align*}
+        Now,
+        \begin{align*}
+         L\vec{Y} & = \vec{B}\\
+             \begin{bmatrix}
+                1&0&0\\
+                2&1&0\\
+                3&\frac{5}{4}&1
+            \end{bmatrix}
+            \begin{bmatrix}
+                y_1\\y_2\\y_3
+            \end{bmatrix}& = \begin{bmatrix}
+                14\\120\\265
+            \end{bmatrix}
+        \end{align*}
+        \begin{align*}
+            y_1& = 14\\
+            y_2& =92\\
+            y_3& =108
+        \end{align*}
+        Then 
+        \begin{align*}
+            L\vec{Y} & = \vec{B}\\
+            \begin{bmatrix}
+                1&2&3\\
+                0&16&20\\
+                0&0&36
+            \end{bmatrix}
+            \begin{bmatrix}
+                x\\y\\z
+            \end{bmatrix}& = \begin{bmatrix}
+                14\\120\\265
+            \end{bmatrix}
+        \end{align*}
+        \begin{align*}
+            x& =1\\
+            y& =2\\
+            z& =3
+        \end{align*}
+}
+\textbf{8. Solve the following systems using LU decomposition method taking $u_{ii} = 1$.}
+\begin{center}
+    4x + 8y + 4z = 28\\
+    x + 5y + 4z- 3w = 13\\
+    x + 4y + 7z + 2w = 23\\
+    x + 3y - 2w = 4
+\end{center}
+\solve{
+    \begin{align*}        
+        A = \begin{bmatrix}
+            4& 8& 4& 0 \\
+            1& 5& 4& -3\\
+            1& 4& 7& 2\\
+            1& 3& 0& -2\\
+        \end{bmatrix}
+        X = \begin{bmatrix}
+            x\\y\\z\\w\\
+        \end{bmatrix}
+        B = \begin{bmatrix}
+            28\\13\\23\\4
+        \end{bmatrix}
+    \end{align*}
+    If A = LU\\
+    Then equation 1 becomes \\
+    $LU\vec{X} = \vec{B}$\\
+    If we set 
+    \begin{equation}U\vec{X} = \vec{Y} \end{equation}
+    \begin{equation}L\vec{Y} = \vec{B} \end{equation}
+    \begin{align*}
+        & \begin{bmatrix}
+            4& 8& 4& 0 \\
+            1& 5& 4& -3\\
+            1& 4& 7& 2\\
+            1& 3& 0& -2\\
+        \end{bmatrix}\\
+        & R_1\rightarrow R_1 * 1/4\\
+        & \begin{bmatrix}
+            1& 2& 1& 0\\
+            1& 5& 4& -3\\
+            1& 4& 7& 2\\
+            1& 3& 0& -2\\
+        \end{bmatrix}\\
+        & R_2=R_2-R_1,R_3=R_3-R_1,R_4\rightarrow R_4-R_1\\
+        & \begin{bmatrix}
+            1& 2& 1& 0\\
+            0&3&3&-3\\
+            0&2&6&2\\
+            0&1&-1&-2
+        \end{bmatrix}\\
+        & R_2\rightarrow R_2*1/3\\
+        & \begin{bmatrix}
+            1& 2& 1& 0\\
+            0& 1& 1& -1\\
+            0&2&6&2\\
+            0&1&-1&-2
+        \end{bmatrix}\\
+        & R_3 \rightarrow R_3 -2*R_2,R_4\rightarrow R_4-R_2\\
+        & \begin{bmatrix}            
+            1& 2& 1& 0\\
+            0& 1& 1& -1\\
+            0&0&4&4\\
+            0&0&-2&-1
+        \end{bmatrix}\\
+        &R_3\rightarrow R_3*1/4\\
+        & \begin{bmatrix}            
+            1& 2& 1& 0\\
+            0& 1& 1& -1\\
+            0&0&1&1\\
+            0&0&-2&-1
+        \end{bmatrix}\\
+        & R_4 \rightarrow R_4+2R_3\\
+        U & = \begin{bmatrix}            
+            1& 2& 1& 0\\
+            0& 1& 1& -1\\
+            0&0&1&1\\
+            0&0&0&1
+        \end{bmatrix}
+    \end{align*}
+    Now ,\\
+    A=LU\\
+    \begin{align*}
+        \begin{bmatrix}
+            4& 8& 4& 0 \\
+            1& 5& 4& -3\\
+            1& 4& 7& 2\\
+            1& 3& 0& -2\\
+        \end{bmatrix} & = 
+        \begin{bmatrix}
+            l_{11} &0&0&0\\
+            l_{21}&l_{22}&0&0\\
+            l_{31}&l_{32}&l_{33}&0\\
+            l_{41}&l_{42}&l_{43}&l_{44}\\
+        \end{bmatrix}
+        \begin{bmatrix}            
+            1& 2& 1& 0\\
+            0& 1& 1& -1\\
+            0&0&1&1\\
+            0&0&0&1
+        \end{bmatrix} \\       
+        \begin{bmatrix}
+            4& 8& 4& 0 \\
+            1& 5& 4& -3\\
+            1& 4& 7& 2\\
+            1& 3& 0& -2\\
+        \end{bmatrix} & = 
+        \begin{bmatrix}
+            l_{11} &2l_{11}&l_{11}&0\\
+            l_{21}&2l_{21}+l_{22}&l_{21}+l_{22}&-l_{22}\\
+            l_{31}&2l_{32}+l_{32}&l_{31}+l_{32}+l_{33}&-l_{32}+l_{33}\\
+            l_{41}&2l_{41}+l_{42}&l_{41}+l{42}+l_{43}&-l_{42}+l_{43}+l_{44}\\
+        \end{bmatrix}
+    \end{align*}
+On equating,
+\begin{align*}    
+    &l_{11}=4 ,l_{21}=1,l_{31}=1,l_{41}=1\\
+    &l_{22}=3 \\
+    &2l_{31}+l_{32}=4 , 2l_{41}+l_{42} = 3\\
+    &l_{32} = 2, l_{42} = 1
+\end{align*}
+\begin{align*}
+    & l_{31}+l_{32}+l_{33} = 7\\
+    & 1+2+l_{33} = 7\\
+    &l_{33} = 4    
+\end{align*}
+\begin{align*}
+    &l_{41}+l{42}+l_{43}=0\\
+    &1+1+l_{43} = 0\\
+    &l_{43} = -2
+\end{align*}
+\begin{align*}
+    &-l_{42}+l_{43}+l_{44} = -2\\
+    &l_{44}=1
+\end{align*}
+So,\\
+\begin{align*}
+    L &= \begin{bmatrix}
+        4&0&0&0\\
+        1&3&0&0\\
+        1&2&4&0\\
+        1&1&-2&1
+    \end{bmatrix}
+\end{align*}
+Using forward substitution,
+
+\begin{align*}
+    & 4y_1 =8 \Rightarrow y_1 =2\\
+    & y_1+3y_2 = 13 \Rightarrow 2+3y_2 = 13\Rightarrow y_2=11/3\\
+    & y_1+2y_2+4y_3=23\\
+    \Rightarrow & 2+2*11/3+4y_3 = 23\Rightarrow y_3 = 41 /12\\
+    & y_1+y_2-2y_3+y_4=4\\
+    \Rightarrow & 2+11/3-2*41/12+y_4=4\\
+    \Rightarrow & y_4 = 31/6
+\end{align*}
+Again,
+\begin{align*}
+    U\vec{X}&=\vec{Y}\\
+    \begin{bmatrix}            
+        1& 2& 1& 0\\
+        0& 1& 1& -1\\
+        0&0&1&1\\
+        0&0&0&1
+    \end{bmatrix} 
+    \begin{bmatrix}
+        x\\y\\z\\w
+    \end{bmatrix} & = \begin{bmatrix}
+        2\\11/3\\41/12\\31/6
+    \end{bmatrix}
+\end{align*}
+Using backward substitution,
+\begin{align*}
+    & w= 31/6\\
+    & z+w=41/12\Rightarrow z=41/12-31/6=-7/4\\
+    & y+z-w = 11/3\Rightarrow y = 11/7+7/4+31/6= 127/12\\
+    & x+2y+z=2\Rightarrow x=2-2*\frac{127}{12}+\frac{7}{4}=\frac{-209}{12}
+\end{align*}
+}
+
+\textbf{9. Solve the following tidiagonal systems using Thomas Algorithm:}
+\begin{center}    
+    4x + 8y = 8\\
+    8x + 18y + 2z = 18\\
+    2y + 5z + 1.5w = 0.5\\
+    1.5z + 1.75w = -1.75
+\end{center}
+\solve{
+The augmented matrix is:
+    \begin{align*}    
+        A & =\begin{bmatrix} 
+           4&8&0&0&:&8\\
+           8&18&2&0&:&18\\
+           0&2&5&1.5&:&0.5\\
+           0&0&1.5&1.75&:&-1.75
+        \end{bmatrix} \\
+    \end{align*}
+    Given i = 4,\\
+    % 1. Setting $\alpha_1 = b_1 \Rightarrow \alpha_1 = 2$ and compute\\
+
+    \begin{align*}
+        \alpha_1 & = b_1 = 4\\
+        \alpha_2 & = b_2 - \frac{a_2c_1}{\alpha_1}\\
+        & = 18-\frac{8*8}{4}\\
+        &=2\\
+        \alpha_3 & = b_3 - \frac{a_3c_2}{\alpha_2}=5-\frac{2*2}{2}=3\\
+        \alpha_4 & = b_4 - \frac{a_4c_3}{\alpha_3} = 175-\frac{1.5*1.5}{3}=1
+    \end{align*}   
+    \begin{align*}
+        \beta_1 & = \frac{b_1}{b_1} = 2\\
+        \beta_2 & = \frac{d_2-a_2\beta_1}{\alpha_2}=\frac{18-8*2}{2}=1\\
+        \beta_3 & =\frac{d_3-a_3\beta_2}{\alpha_3}=-\frac{1}{2}\\
+        \beta_4 & = \frac{d_4-a_4\beta_3}{\alpha_4} = \frac{-175-1.5*-1/2}{1}=-1
+    \end{align*}   
+    Let $x_n = b_n$ i.e $x_4 = b_4=-1$
+    \begin{align*}
+        x_3 &= \beta_3 - \frac{c_3x_4}{\alpha_3}\\
+        & = -1/2-\frac{-1.5*-1}{3}\\
+        & = 0\\
+        x_2 &= \beta_2 - \frac{c_2x_3}{\alpha_2}\\
+        & = 1-\frac{2*0}{2} = 1\\
+        x_1 &= \beta_1 - \frac{c_1x_2}{\alpha_1}\\
+        & = 2-\frac{8*1}{4}=0
+    \end{align*}
+    $\therefore x=0,y=1,z=x_3=0,w=x_4=-1$
+}
+\end{document}

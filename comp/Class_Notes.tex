@@ -1,0 +1,55 @@
+\documentclass{report}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\title{\Huge{Database Management System}\\Class Notes}
+\author{\huge{Rohit Raj Karki}}
+\date{}
+
+\begin{document}
+
+\maketitle
+\newpage% or \cleardoublepage
+% \pdfbookmark[<level>]{<title>}{<dest>}
+\pdfbookmark[section]{\contentsname}{toc}
+\tableofcontents
+\pagebreak
+
+\chapter{Database Constraints}
+\section{Constraint}
+
+Following are the different constraint.
+\begin{itemize}
+    \item Domain Constraint\\ They derive valid points for the attributes.Can have complex onditions in domain check
+    \item Referential Integrity \\ Let $r_1(R_1) and r_2(R_2)$ be relationd with primary keys $K_1 \text{ and } K_2$ respectively.
+\end{itemize}
+
+\section{SQL Queries}
+\begin{itemize}
+    \item DROP DATABASE Bank
+    \item CREATE DATABASE Kathmandu-University
+    \item USE Bank
+    \item CREATE TABLE \textbf{payscale} \{ \\
+        PRIMARY KEY(position) NOT NULL AUTO INCREMENT INT,\\
+        salary NUMBER,\\
+        grade CHAR,\\
+    \}
+    \item CREATE TABLE \textbf{teacher} \{\\
+        PRIMARY KEY (teacherid) INT NOT NULL AUTO INCREMENT,\\
+        name char(50),\\
+        grade CHAR(1),\\
+        birthdate INT,\\
+        position INT,\\
+        foreign key position references payscale (\textbf{position})
+    \}
+    \item CREATE TABLE \textbf{class} \{\\
+        classscheduleno INT AUTOINCREMENT,\\
+        salary INT,\\
+        teacherid ID,\\
+        roomno INT,\\
+    \}
+    \item SELECT name from teacher 
+\end{itemize}
+\end{document}

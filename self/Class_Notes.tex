@@ -1,0 +1,40 @@
+\documentclass{report}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\title{\Huge{Self Study}\\Class Notes}
+\author{\huge{Rohit Raj Karki}}
+\date{}
+
+\begin{document}
+
+\maketitle
+\newpage% or \cleardoublepage
+% \pdfbookmark[<level>]{<title>}{<dest>}
+\pdfbookmark[section]{\contentsname}{toc}
+\tableofcontents
+\pagebreak
+
+\chapter{CPU Cache}
+\section{Why you care}
+
+CPU Cache ar the small amount of uswally fast memory \\
+\textbf{Variation of Row vs Column traversals} \\
+Traversal order matter
+Row traversals are faster than column traversals.\\
+\begin{itemize}
+    \item Generally hold contents of recently accessed memory locations
+    \item Access latency much smaller than for main memory
+\end{itemize}
+Three common types\\
+\begin{itemize}
+    \item Data Cache
+    \item Instructions Cache
+    \item TLB
+\end{itemize}
+
+
+
+\end{document}

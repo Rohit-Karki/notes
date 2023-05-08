@@ -1,0 +1,1069 @@
+\documentclass{report}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{anyfontsize}
+\usepackage{sectsty}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\begin{tikzpicture}[overlay,remember picture]
+
+% Background color
+\fill[
+black!2]
+(current page.south west) rectangle (current page.north east);
+
+% Rectangles
+\shade[
+left color=Dandelion, 
+right color=Dandelion!40,
+transform canvas ={rotate around ={45:($(current page.north west)+(0,-6)$)}}] 
+($(current page.north west)+(0,-6)$) rectangle ++(9,1.5);
+
+\shade[
+left color=lightgray,
+right color=lightgray!50,
+rounded corners=0.75cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}]
+($(current page.north west)+(0.5,-10)$) rectangle ++(15,1.5);
+
+\shade[
+left color=lightgray,
+rounded corners=0.3cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}] ($(current page.north west)+(1.5,-9.55)$) rectangle ++(7,.6);
+
+\shade[
+left color=orange!80,
+right color=orange!60,
+rounded corners=0.4cm,
+transform canvas ={rotate around ={45:($(current page.north)+(-1.5,-3)$)}}]
+($(current page.north)+(-1.5,-3)$) rectangle ++(9,0.8);
+
+\shade[
+left color=red!80,
+right color=red!80,
+rounded corners=0.9cm,
+transform canvas ={rotate around ={45:($(current page.north)+(-3,-8)$)}}] ($(current page.north)+(-3,-8)$) rectangle ++(15,1.8);
+
+\shade[
+left color=orange,
+right color=Dandelion,
+rounded corners=0.9cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(4,-15.5)$)}}]
+($(current page.north west)+(4,-15.5)$) rectangle ++(30,1.8);
+
+\shade[
+left color=RoyalBlue,
+right color=Emerald,
+rounded corners=0.75cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(13,-10)$)}}]
+($(current page.north west)+(13,-10)$) rectangle ++(15,1.5);
+
+\shade[
+left color=lightgray,
+rounded corners=0.3cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(18,-8)$)}}]
+($(current page.north west)+(18,-8)$) rectangle ++(15,0.6);
+
+\shade[
+left color=lightgray,
+rounded corners=0.4cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(19,-5.65)$)}}]
+($(current page.north west)+(19,-5.65)$) rectangle ++(15,0.8);
+
+\shade[
+left color=OrangeRed,
+right color=red!80,
+rounded corners=0.6cm,
+transform canvas ={rotate around ={45:($(current page.north west)+(20,-9)$)}}] 
+($(current page.north west)+(20,-9)$) rectangle ++(14,1.2);
+
+% Year
+\draw[ultra thick,gray]
+($(current page.center)+(5,2)$) -- ++(0,-3cm) 
+node[
+midway,
+left=0.25cm,
+text width=5cm,
+align=right,
+black!75
+]
+{
+{\fontsize{25}{30} \selectfont \bf ASSIGNMENT\\[10pt] FIRST}
+} 
+node[
+midway,
+right=0.25cm,
+text width=6cm,
+align=left,
+orange]
+{
+{\fontsize{72}{86.4} \selectfont 2023}
+};
+
+% Title
+\node[align=center] at ($(current page.center)+(0,-5)$) 
+{
+{\fontsize{60}{72} \selectfont {{Differential Equation}}} \\[1cm]
+{\fontsize{16}{19.2} \selectfont \textcolor{orange}{ \bf Rohit Raj Karki }}\\[3pt]
+CE-2020(21)\\[3pt]
+Kathmandu University};
+\end{tikzpicture}
+
+\pagebreak
+
+\textbf{1) Solve the following first order differential equations, Initial value problems (Show
+the details of the work):}\\
+    a. $2xydx + x^2dy = 0$\\
+    \solve{    
+    \begin{align*}
+        & 2xydx + x^2dy = 0\\
+        \Rightarrow & 2xydx = -x^2dy \\
+        \Rightarrow & \frac{2dx}{x} = \frac{dy}{y}\\      
+        & \text{Integrating on both sides}\\
+        \Rightarrow & \int_{}^{}\frac{2dx}{x} = -\int_{}^{}\frac{dy}{y})\\
+        \Rightarrow & 2ln|x| = -ln|y| + c^{*}\\      
+        \Rightarrow & ln|x^2| + ln|y| = c^{*}\\
+        \Rightarrow & ln|x^2y| = c*\\
+        \Rightarrow & x^2y = e^{c*}\\
+        \Rightarrow & x^2y = c\\
+        & \text{where } c = \pm e^{c*}
+    \end{align*}
+}
+ b. $(x^2y - 2xy^2)dx = (x^3 - 3x^2y)dy$\\
+\solve{
+    \begin{align*}
+        & (x^2y - 2xy^2)dx = (x^3 - 3x^2y)dy\\
+        \Rightarrow & \frac{dy}{dx} = \frac{(x^2y - 2xy^2)}{(x^3 - 3x^2y}
+    \end{align*}
+    \begin{equation}
+        \frac{dy}{dx} = \frac{\frac{y}{x} - 2(\frac{y}{x})^2}{1-3\frac{y}{x}}
+    \end{equation}
+    \begin{align*}
+        & \text{Put } \frac{y}{x} = v\\
+        \Rightarrow & y = vx\\
+        \Rightarrow & \frac{dy}{dx} = v + x\frac{dv}{dx}
+    \end{align*}
+    Now equation 1 becomes 
+    \begin{align*}
+        & v + x\frac{dv}{dx} = \frac{v-2v^2}{1-3v}\\
+        \Rightarrow & x\frac{dv}{dx} = \frac{v-2v^2 - v + 3v^2}{1-3v}\\
+        \Rightarrow & x\frac{dv}{dx} = \frac{v^2}{1-3v}\\
+        \Rightarrow & \frac{1-3v}{v^2}dv = \frac{1}{x}dx\\
+        \Rightarrow & \frac{1}{v^2} - \frac{3}{v} = \frac{1}{x}dx
+    \end{align*}
+    \text{Integrating on both sides}
+    \begin{align*}    
+        & \int_{}^{}\frac{1}{v^2}dv - \int_{}^{}\frac{3}{v}dv = \int_{}^{}\frac{1}{x}dx\\
+        \Rightarrow & -\frac{1}{v} - 3ln|v| = ln|x| + c^*\\
+        \Rightarrow & -v^{-1} - 3ln|v| = ln|x| + c^*\\
+        \Rightarrow & -e^{\frac{x}{y}} - 3\frac{y}{x} = x + e^{c*}\\
+        \Rightarrow & e^{\frac{x}{y}} + 3\frac{y}{x} +x = c
+    \end{align*}
+    \begin{center}
+    where $c = -e^{c*}$
+    \end{center}
+}
+c. $xdx + ydy + \frac{xdy-ydx}{x^2+y^2} = 0$\\
+\solve{
+    \begin{align*}
+        & xdx + ydy + \frac{xdy-ydx}{x^2+y^2} = 0\\
+        \Rightarrow & xdx + ydy + \frac{xdy-ydx}{x^2(1+\frac{y^2}{x^2})} = 0\\
+        \Rightarrow & xdx + ydy + \frac{d(y/x)}{1+\frac{y^2}{x^2}} = 0\\
+    \end{align*}
+    let $y/x=z$\\
+    $$xdx+ydy +\frac{dz}{1+z^2} = 0$$\\
+    Integrating above equation
+    \begin{align*}
+        & \int_{}^{}xdx+\int_{}^{}ydy + \int_{}^{}\frac{1}{1+z^2} = \int_{}^{}0\\
+        \Rightarrow & \frac{x^2}{2}+\frac{y^2}{2} + tan^{-1}z = c\\
+        \Rightarrow & x^2+y^2 +tan^{-1}z = c_1\text{is the required equation}        
+    \end{align*}
+}
+e. $(2cos y + 4x2)dx = x sin ydy$\\
+\solve{
+    \begin{align*}
+        & (2cos y + 4x^2)dx = x sin ydy\\
+        \Rightarrow & (2 cos y + 4x^3)dx -x sin ydy=0\\
+    \end{align*}
+    \begin{flushleft}        
+        Comparing eqns with $Mdx + Ndy = 0$ or $Pdx + Qdy = 0$\\
+        we get,\\
+    \end{flushleft}    
+    \begin{equation}
+        P = 2 cos y + 4x^3\\
+    \end{equation}
+    \begin{equation}
+        Q = -xsiny
+    \end{equation}
+    Here,
+    $$\frac{dP}{dx} = -2siny ,\frac{dQ}{dy} = -siny$$
+    $$\frac{dP}{dx} \neq \frac{dQ}{dy}$$
+    So, not exact.
+    \begin{align*}
+        R & = \frac{1}{Q}( \frac{dp}{dy} - \frac{dQ}{dx})\\
+        & = \frac{1}{-xsiny}(-2siny-siny)\\
+        & = \frac{1}{x}\\
+        \text{Integrating factor,} \\
+        I.F & = e^{\int_{}^{}Rdx}\\
+        & = e^{\int_{}^{}\frac{1}{x}dx}\\
+        & = e^{lnx}\\
+        & = x
+    \end{align*}
+    % \begin{center}
+    %     Now $\frac{dP}{dy} = -2xsiny$ and $\frac{dQ}{dx} = -2xsiny$ \\
+    %     So it is exact\\
+    % \end{center}
+    % Here ,
+    % \begin{equation}
+    %     P = \frac{dv}{dx} = 2 xcos y + 4x^3\\
+    % \end{equation}
+    % \begin{equation}        
+    %     Q = \frac{dv}{dy} = -x^2siny\\
+    % \end{equation}
+    % On Integrating eqn 3 we get w.r.t x\\
+    % \begin{align*}
+    %     & v(x,y) = \int_{}^{}(2 xcos y + 4x2) dx + f(y)\\
+    %     \Rightarrow & v(x,y) = x^2cosy + x^4 + f(y)\\
+    %     \Rightarrow & \frac{dv}{dy} = -x^2siny + \frac{df}{dy} \\
+    %     \Rightarrow & -x^2siny = -x^2siny + \frac{df}{dy}\\
+    %     \Rightarrow & \frac{df}{dy} = 0 
+    % \end{align*}
+    % On Integrating\\
+    % \begin{center}
+    %     $f(y) = k$
+    % \end{center}
+    % Now,\\
+    % Multiplying equation eqn 2 by I.F.\\
+    % \begin{align*}
+    %     & e^{x^2}2xtanydx +  e^{x^2}sec^2y dy = 0\\
+    %     \Rightarrow & 
+    % \end{align*}
+
+    so the exact differential equation becomes ,
+    \begin{align*}
+        & x(2cosy+4x^2)dx - x(xsiny)dy = 0 \\
+        \Rightarrow & (2xcosy+4x^3)dx -x^2sinydy = 0\\        
+        & M = 2xcosy +4x^3,N = -x^2siny
+    \end{align*}
+
+    The solution is :
+    \begin{align*}
+        u & = \int_{}^{}(2xcosy+4x^3)dx+k(y)\\
+        & = \int_{}^{} 2xcosydx+\int_{}^{}4x^3dx+k(y)\\
+    \end{align*}
+    \begin{equation}
+        u = x^2cosy+x^4+k(y)
+    \end{equation}
+    Partial differentiating w.r.t y 
+    \begin{align*}
+        & \frac{\partial u}{\partial y} = \frac{\partial x^2 cosy}{\partial y}+\frac{\partial x^4}{\partial y} + \frac{\partial k(y)}{\partial y}\\
+        & N = -x^2siny +\frac{dk(y)}{dy}\\
+        & -x^2siny = -x^2siny +\frac{dk(y)}{dy}\\
+        & \frac{dk(y)}{dy} = 0
+    \end{align*}
+    Integrating,\\
+    k(y)=c
+    From equation 4 
+    \begin{align*}
+        & u = x^2cosy+ x^4 +c
+    \end{align*}
+    Hence, $x^2cosy+ x^4 +c$ is the required equation.
+}
+ e. $y' + xy = xy^{-1}$\\
+\solve{
+    \begin{align*}
+        & y' + xy = xy^{-1}  \\
+    \end{align*}
+    \begin{center}
+        Comparing with $y' + p(x)y = g(x)y^{a}$\\
+        a = -1\\
+        p(x) = x\\
+        g(x) = x        
+    \end{center}
+    \begin{align*}
+        I.F & = e^{\int_{}{}(1-a)pdx}\\
+            & = e^{\int_{}{}(1+1)xdx}\\
+            & = e^{x^{2}}
+    \end{align*}
+    \begin{center}
+        Now the solution is         
+    \end{center}
+    \begin{align*}
+        & y^{1-a}e^{x^2} = \int_{}^{} (1-a)g(x)e^{x^2}\\
+        \Rightarrow & y^{1-a}e^{x^2} = \int_{}^{}2xdx\\
+        \Rightarrow & y^{1-a}e^{x^2} = e^{x^2} +c\\
+        \therefore & y^2 = e^{-x^2}c + 1
+    \end{align*}
+}
+    f. $2x tan ydx + sec^2ydy = 0$\\
+\solve{
+    \begin{align*}
+        & 2x tan ydx + sec^2ydy = 0\\
+        \Rightarrow & 2xdx =-\frac{sec^2y}{tany}dy
+    \end{align*}
+    \begin{center}
+        Integrating on both sides
+    \end{center}
+    \begin{align*}
+        & -\int_{}^{} 2xdx = \int_{}^{} \frac{sec^2y}{tany}dy\\
+        \Rightarrow & -x^2 +c_1= ln|tany|\\
+        \Rightarrow & e^{-x^2+c_1} = tany\\
+        \therefore & e^{-x^2}c = tany
+    \end{align*}
+}
+    g. $y' +\frac{y}{3} =\frac{1}{3}(1 - 2x)y^4$\\
+\solve{
+    \\
+    Comparing with $y' + p(x)y = g(x)y^{a}$\\
+    $a = 4$\\
+    $p(x) = \frac{1}{3}$\\
+    $g(x) = \frac{1}{3}(1-2x)$
+    \begin{align*}
+        I.F & = e^{\int_{}^{}(1-a)pdx}\\
+        & = e^{\int_{}^{}(1-4)\frac{1}{3} }\\        
+        & = e^{\int_{}^{}-1dx} \\        
+        & = e^{-x}
+    \end{align*}
+    The solution is 
+    \begin{align*}
+        & u\cdot\text{I.F}  = \int_{}^{}(1-a)g(x)\cdot\text{I.F}dx\\
+        \Rightarrow & y^{1-a}e^{-x} = \int_{}^{}(1-4)\frac{1}{3}(1-2x)e^{-x} dx\\
+        \Rightarrow & y^{1-4}e^{-x} = \int_{}^{}-3\frac{1}{3}(1-2x)e^{-x} dx\\
+        \Rightarrow & y^{-3}e^{-x} = \int_{}^{}(-1+2x)e^{-x}dx\\
+        \Rightarrow & y^{-3}e^{-x} = (-1+2x)\int_{}^{}e^{-x}dx - \int{}^{}\left[\frac{d(-1+2x)}{dx}\int_{}^{}e^{-x}dx\right]dx+c \\
+        \Rightarrow & y^{-3}e^{-x} = (1-2x)e^{-x} - \int_{}^{}-2e^{-x}dx+c  \\
+        \Rightarrow & y^{-3}e^{-x} = (1-2x)e^{-x} - 2e^{-x}+c\\
+        \Rightarrow & y^{-3}e^{-x} = e^{-x}[1-2x -2+ ce^x]\\
+        \Rightarrow & y^{-3} = -2x -1+ ce^x
+    \end{align*}
+    Hence the equation is 
+    \begin{center}
+        $y^{-3} = -2x -1+ ce^x$
+    \end{center}
+}
+    i. $y' + x^2 = x^2e^{3y}$\\
+\solve{
+    \begin{align*}
+        & \frac{dy}{dx}+ x^2 = x^2e^{3y}\\
+        \Rightarrow & \frac{dy}{dx}= x^2(-1+ e^{3y})\\
+        \Rightarrow & \frac{dy}{-1+ e^{3y}} = x^2dx
+    \end{align*}
+    Integrating on both sides
+    \begin{align*}
+        & \int_{}^{}\frac{dy}{-1+ e^{3y})} = \int_{}^{}x^2dx\\        
+        \Rightarrow & \frac{1}{3}\int_{}^{}\frac{3e^{-3y}}{-1+e^{3y}}dy = \frac{x^3}{3} +c\\
+        \Rightarrow & \frac{1}{3}ln|1-e^{-3y}| = \frac{x^3}{3}+c\\        
+    \end{align*}
+}
+j. $xy' + y = y^2log x$\\
+\solve{
+    Dividing on both sides by x
+\begin{align*}
+    y'+\frac{y}{x}=y^2\frac{logx}{x}\\
+    y'+\frac{1}{x}y=\frac{logx}{x}y^2\\
+\end{align*}
+\text{Comparing with} $y'+p(x)y = g(x)y^a$\\
+\begin{align*}
+    p(x) = \frac{1}{x},g(x)=log(x),a=2
+\end{align*}
+\begin{align*}
+    I.F. &= e^{\int_{}^{}(1-a)pdx}\\
+    &= e^{\int_{}^{}(1-2)\frac{1}{x}dx}\\
+    &= e^{\int_{}^{}-\frac{1}{x}dx}\\
+    & = e^{-log(x)}\\
+    & = e^{log(x^{-1})}\\
+    & = x^{-1}
+\end{align*}
+The solution is 
+\begin{align*}
+    \Rightarrow & u\cdot I.F = \int_{}^{}(1-a)g(x)I.Fdx\\
+    \Rightarrow & y^{1-a}x^{-1} = \int_{}^{}(1-2)\frac{log(x)}{x}x^{-1}\\
+    \Rightarrow & y^{1-2}x^{-1} = -\int_{}^{}\frac{log(x)}{x}x^{-1}\\
+    \Rightarrow & y^{-1}x^{-1} = -\int_{}^{}\frac{log(x)}{x^2}\\
+    \Rightarrow & \frac{1}{xy} = \big[-log(x)\frac{1}{x}-\int_{}^{} \frac{1}{x}\frac{-1}{x} dx\big] +c\\
+    \Rightarrow & x^{-1}y^{-1} = -1\big[\frac{log(x)}{-x}- \frac{1}{x}\big]+c\\
+    \Rightarrow & x^{-1}y^{-1} = \frac{log(x)}{x}+ \frac{1}{x}+c\\
+    \Rightarrow & y^{-1} = log(x) +1+cx\\
+    \therefore y=\frac{1}{log(x) +1+cx}
+\end{align*}
+}
+k. $(xy^{3}+y)dx+2(x^2y^2 +x+y^4)dy = 0$\\
+\solve{
+    Comparing with Pdx+Qdy =0 \\
+    The above equation is not exact.\\
+    $P(x,y) = (xy^3 +y),Q(x,y) = 2(x^2y^2 +x+y^4)$
+    \begin{align*}
+        I.F& = e^{\int_{}^{}Rdx}\\
+        & = e^{\int_{}^{}\frac{1}{Q}\big[\frac{\partial P_y}{\partial y} -\frac{\partial Q_x}{ \partial x}\big]dx}\\
+        & = e^{\int_{}^{}\frac{1}{Q}\big[\frac{\partial xy^3 +y}{\partial y} -\frac{\partial 2(x^2y^2 +x+y^4)}{ \partial x}\big]dx}\\
+        & = e^{\int_{}^{}\frac{1}{Q}(3xy^2+1-4xy^2-2)dx}\\
+        & = e^{\int_{}^{}\frac{(-xy^2-1)}{2(x^2y^2 +x+y^4)}}
+    \end{align*}
+    Here Integrating factor depends on both x and y.\\
+    Here,
+    \begin{align*}
+        I.F& = e^{\int_{}^{}Rdx}\\
+        & = e^{\int_{}^{}\frac{1}{P}\big[\frac{\partial Q}{\partial x} -\frac{\partial P}{ \partial y}\big]dy}\\
+        & = e^{\int_{}^{}\frac{1}{(xy^3 +y)}\big[\frac{\partial 2(x^2y^2 +x+y^4)}{\partial x} -\frac{\partial (xy^3 +y)}{ \partial y}\big]dy}\\
+        & = e^{\int_{}^{}\frac{1}{(xy^3 +y)}( 4xy^2+2-3xy^2-1 )dy}\\
+        & = e^{\int_{}^{}\frac{1}{(xy^3 +y)}( xy^2+1 )dy}\\
+        & = e^{\int_{}^{}\frac{1}{y}dy}\\
+        & = e^{\int_{}^{}log(y)}\\
+        & = y\\
+    \end{align*}
+    Here R only depends on y.\\
+    So the differential equation becomes 
+}
+l. $y' = 2(y - 1) tanh 2x, y(0) = 0$\\
+\solve{
+    \begin{align*}
+        &y' = 2ytanh2x - 2tanh2x\\
+        \Rightarrow & y' - (2tanh 2x)y = -2tanh2x
+    \end{align*}
+    Comparing with y'+p(x)y=r(x)\\
+    p(x) =- 2tanh 2x\\
+    \begin{align*}
+        I.F &= e^{\int_{}^{}p(x)dx}\\
+        & = e^{\int_{}^{}-2tanh 2xdx}\\
+        & = e^{-2\frac{ln(cos2x)}{2}}\\
+        & = e^{ln(cos2x)^{-1}}\\
+        & = \frac{1}{cosh2x}
+    \end{align*}
+    The solution is 
+    \begin{align*}
+        & y'\frac{1}{cosh2x} - (2tanh 2x)\frac{1}{cosh2x}y = -2tanh2x\frac{1}{cosh2x}\\
+        \Rightarrow & y'(cosh2x)^{-1} - 2\frac{sin2hx}{cosh2xcosh2x}y = -2\frac{sin2hx}{cosh2x cosh2x}\\
+        \Rightarrow & y'(cosh2x)^{-1} - 2sin2hx(cosh2x)^{-2}y = 2sin2hx(cosh2x)^{-2}\\
+        \Rightarrow & dy(cosh2x)^{-1} - 2sin2hx(cosh2x)^{-2}ydx = 2sin2hx(cosh2x)^{2}\\
+        \Rightarrow & dy(cosh2x)^{-1} = \frac{-2sin2hx }{(cosh2x)^{-2}}dx\\
+    \end{align*}
+    Integrating on both sides 
+    \begin{align*}
+        & y(cosh2x)^{-1} = \int_{}^{}\frac{-2sin2hx }{(cosh2x)^{2}}dx\\
+        \Rightarrow & y(cosh2x)^{-1} = -2\int_{}^{}\frac{sin2hx }{(cosh2x)^{2}}dx\\
+        \Rightarrow & y(cosh2x)^{-1} = \frac{-2}{2}\frac{(cosh2x)^{-2+1}}{-2+1}+c\\
+        \Rightarrow  & y(cosh2x)^{-1} = \frac{-2\cdot -1}{2}(cosh2x)^{-1}+c\\
+        \Rightarrow  & y(cosh2x)^{-1} = (cosh2x)^{-1}+c\\
+        \Rightarrow & y = 1+\frac{c}{(cosh2x)^{-1}}
+    \end{align*}
+    \begin{align*}
+        y(0) & = 1+\frac{c}{(cos0)^{-1}}\\ 
+        \Rightarrow 0&=   1+\frac{c}{(1)^{-1}}\\ 
+        \Rightarrow 0&=  1+c\\
+        \therefore c&=-1
+    \end{align*}
+    So the solution is :\\
+    \begin{align*}
+        & y(cosh2x)^{-1} = (cosh2x)^{-1}-1\\
+        \Rightarrow &y = 1-\frac{1}{(cosh2x)^{-1}}\\
+        \therefore & y = 1-cosh2x
+    \end{align*}
+}
+m. $xy' = y + x^2sec(y/x), y(1) = \pi$\\
+\solve{
+    \begin{equation}
+        y' = \frac{y}{x} + xsec(y/x)
+    \end{equation}
+    let y =vx\\
+    $y' = v + x\frac{dv}{dx}$
+    From eqn 5 we get
+    \begin{align*}
+        & v + x\frac{dv}{dx} = v + xsecv\\
+        \Rightarrow & \frac{dv}{dx} = secv
+        \Rightarrow & dx = secvdv        
+    \end{align*}
+    Integrating on both sides 
+    \begin{align*}
+        & \int_{}^{}dx = \int_{}^{}\frac{1}{secvdv}\\
+        & \int_{}^{}dx = \int_{}^{}cosv\\
+        \Rightarrow & x+c = sinv\\
+        \Rightarrow & x+c = sin(\frac{y}{x})
+    \end{align*}
+    for $y(1)= \pi$
+    \begin{align*}
+        & 1+c = sin\Bigl(\frac{\pi}{1}\Bigr)\\        
+        & c = -1
+    \end{align*}
+    The solution is 
+    \begin{align*}
+        x-1 = sin\Bigl(\frac{y}{x}\Bigr)
+    \end{align*}
+}
+n. $3y^2dx + xdy = 0, y(1) = 1/2$\\
+\solve{
+    \begin{align*}
+        \frac{dx}{x} = \frac{-dy}{3y^2}
+    \end{align*}
+    Integrating on both sides 
+    \begin{align*}
+        -\int_{}^{}\frac{dx}{x} = \int_{}^{}\frac{dy}{3y^2}\\
+        -ln(x) +c= \frac{-1}{3y}\\
+        ln(x) +c= \frac{1}{3y}\\        
+    \end{align*}
+    For $y(1) = 1/2$
+    \begin{align*}
+        ln(1) +c &= \frac{1}{3*1/2}\\
+        c &= \frac{2}{3}
+    \end{align*}
+    The solution is \\
+    \begin{align*}
+        & ln(x) +\frac{2}{3}= \frac{1}{3y}\\
+        \Rightarrow & 3ln(x) +2= 3\frac{1}{3y}\\
+        \Rightarrow & 3ln(x) +2= \frac{1}{y}\\
+        \therefore &  y=  \frac{1}{ln(x^3) +2}
+    \end{align*}
+}
+o. $e^xy' = 2(x + 1)y2, y(0) = 1/6$\\
+\solve{
+    \begin{align*}
+        &e^xy' = 2(x + 1)y^2\\
+        \Rightarrow & e^x\frac{dy}{dx} = 2(x + 1)y^2\\
+        \Rightarrow & \frac{dy}{y^2} = 2(x+1)\frac{dx}{e^x}\\
+    \end{align*}
+    Integrating on both sides
+    \begin{align*}
+        & \int_{}^{}\frac{dy}{y^2} = \int_{}^{}2(x+1)\frac{dx}{e^x}\\
+        \Rightarrow & \frac{-1}{y} = 2\int_{}^{}(x+1)e^{-x} +c\\
+        \Rightarrow & \frac{-1}{y} = 2\Big[
+            \bigl\{-(x+1)e^{-x} \bigr\} - \int_{}^{}-e^{-x}dx
+        \Big]+c\\
+        \Rightarrow & \frac{-1}{y} = -2\Big[
+            \bigl\{(x+1)e^{-x} \bigr\} + e^{-x}
+        \Big]       -c \\
+        \Rightarrow & \frac{1}{y} = 2\Big[
+            \bigl\{(x+1)e^{-x} \bigr\} + e^{-x}
+        \Big]       -c \\
+    \end{align*}
+    For $y(0) = 1/6$
+    \begin{align*}
+        & \frac{1}{1/6} = 2\Big[
+        \bigl\{(0+1)e^{0}\bigr\}
+        +e^{0}
+        \Big]-c\\
+        \Rightarrow & c= -2
+    \end{align*}
+    The solution is \\
+    \begin{align*}
+        &\frac{1}{y} = 2\Big[
+            \bigl\{(x+1)e^{-x} \bigr\} + e^{-x}
+        \Big]  +2  \\
+        \therefore & \frac{1}{y} = 2e^{-x}
+            (x+1)     +2
+    \end{align*}
+}
+p. $2yy' + y^2sin x = sin x, y(0) = \sqrt[]{2}$\\
+\solve{
+
+}
+\textbf{2. Mathematical Modeling (Develop a mathematical model and solve related problems):}\\\\
+\textbf{a.} (Exponential Growth): If relatively small populations are left undisturbed,then the time rate of growth is proportional to the population present. If in aculture of yeast the rate of growth y'(t) is proportional to the amount presenty(t) at time t, and if y(t) doubles in 1 day, how much can be expected after 3days at the same rate of growth? After 1 week?\\
+\solve{
+    For a exponential growth,
+    \begin{equation}
+        y=e^{kt}        
+    \end{equation}
+    Differentiating eqn i w.r.t t we get,
+    \begin{align*}
+        \frac{dy}{dt} = ke^{kt}\\
+        y' - k \cdot y\\
+        \frac{y'}{y} = k
+    \end{align*}
+    Integrating both sides w.r.t t 
+    \begin{equation}
+        lny = kt+c \text{which is the general solution }    
+    \end{equation}
+    We have the conditions,\\
+    $At t=0,y'=ky$ i.e\\
+    the general solution is 
+    \begin{equation}
+        lny = kt+c
+    \end{equation}
+    \begin{align*}
+        lny = k\cot 0 +c\\
+        lny = c
+    \end{align*}
+    So the equation becomes 
+    lny = kt+lny
+    If y(t) doubles in 1 day,
+    At t =1 day,
+    \begin{align*}
+        & ln2y = k +lny\\
+        \Rightarrow & ln2y-lny = 2k\\
+        \Rightarrow & ln\big[
+        \frac{2y}{y}   
+        \big] = k\\
+        \Rightarrow & ln2 =k\\
+        \therefore &k=ln2
+    \end{align*}
+    At t = 3 day,
+    \begin{align*}
+        & lnay = k\cdot 3 +lny\\
+        \Rightarrow & lnay=ln3\cdot 3 +lny\\
+        \Rightarrow & ln\big[
+        \frac{ay}{y}   
+        \big] = ln2\cdot 3\\
+        \Rightarrow & lna =2ln2\\
+        \Rightarrow & a=e^{ln2^{3}}\\
+        \therefore & a=8
+    \end{align*}
+    So the population is 8 times the initial population.\\
+    Hence the equation becomes,\\
+    $ln8y = 3k +lny$
+    which is ,\\
+    $y'(t) = 8y(t) $ At t=3\\
+    Again ,
+    For t = 7 let y(t) changes by be
+    \begin{align*}
+        & lnby = k\cdot 70+lny\\
+        \Rightarrow & ln\Bigl(
+            \frac{by}{y}
+        \Bigr)=k\cdot 7\\
+        \Rightarrow & lnb = 7k\\
+        \Rightarrow & lnb = 7*ln2\\
+        \Rightarrow & lnb = ln(2)^{7}\\
+        \Rightarrow & b = 2^7\\
+        \therefore b = 128
+    \end{align*}
+    Hence the population is 128 times the initial population.\\
+    which is ,\\
+    $$y'(7) = 128\cdot y(7)$$
+}
+\textbf{b.} (Airplane takeoff): An airplane taking off from a landing field has a run of 2 kilometers. If the plane starts with a speed of 10 meters/sec, moves with constant acceleration, and makes the run in 50 sec, with what speed does it take off? What happens if the acceleration is 1.5 meters/sec2?\\
+\solve{
+    Let y be the distance or a run of airplane
+    \begin{align*}
+        &y(0)=0\text{ [At t =0 distance covered is 0 ]}\\
+        &y'(0)=10\text{ m/s [ Given velocity initial velocity =10 m/s]}\\
+        &y(50)=v\text{ m/s  [ Final velocity after t=50sec =v]}\\
+        &y''(50)=a\text{ m/s2 [ accelration to be determined ]}
+    \end{align*}
+    Integrating above equation w.r.t t
+    \begin{equation}
+        y'(t) = at+c
+    \end{equation}
+    At t=0
+    \begin{align*}
+        y'(0)=c\\
+        c=10
+    \end{align*}
+    so eqn 9 becomes 
+    \begin{align*}
+        y'(t) = at+10
+    \end{align*}
+    Integrating above equation w.r.t t
+    \begin{align*}
+        y(t) = \frac{at^2}{2}+10t+c
+    \end{align*}
+    At t =0 
+    \begin{align*}
+        &y(0) = 0+0+c\\
+        &c=0
+    \end{align*}
+    So $ y(t) = \frac{at^2}{2}+10t$
+    At t=50
+    \begin{align*}
+        & y(50) = \frac{a50^2}{2}+10*50\\
+        \Rightarrow & 2000 = a*1250 +500\\
+        \Rightarrow & a = \frac{1500}{1250}\\
+        \therefore & a= 1.2 m/s^{2}
+    \end{align*}
+    
+}
+\textbf{c.} (Sugar Inversion): Experiments show that rate of inversion of cane sugar in dilute solution is proportional to the concentration y(t) of unaltered sugar. Let the concentration at t = 0 and at t = 4 hours. Find y(t).
+\solve{
+    As Rate of inversion of cane sugar =initial concentration of unaltered sugar \\
+    \begin{align*}
+        & \frac{dy(t)}{dt} \alpha y(t)\\
+        \Rightarrow & \frac{dy(t)}{dt} = ky(t)\\
+        \Rightarrow & \frac{dy(t)}{y(t)} = kdt
+    \end{align*}
+    Integrating on both sides 
+    \begin{align*}
+        & \int_{}^{}\frac{dy(t)}{y(t)} = \int_{}^{}kdt
+    \end{align*}
+    \begin{equation}
+        \therefore ln|y(t)| = kt +c
+    \end{equation}
+    At $t = 0 $,    
+    \begin{align*}
+    &    ln|y(0)| = k*0 +c\\
+    &   c = ln|y(0)|    \text{ (Initial condition)}
+    \end{align*}
+    So eqn 10 becomes ,
+    \begin{align*}
+        ln|y(t)| = kt +ln|y(0)|
+    \end{align*}
+    At $t = 4$
+    \begin{align*}
+        & ln|y(4)| = k*4 +ln|y(0)|\\
+        \Rightarrow & ln|\frac{y(t)}{y}| = 4k\\
+        \Rightarrow & \frac{y(t)}{y} = e^{4k}\\
+        \Rightarrow & y(t) = ye^{4k}
+    \end{align*}
+}
+\textbf{d.} (Newton's Law of Cooling): Experiments show that the time rate of change of the temperature T of a body is proportional to the difference between T and the temperature TA of the surrounding medium. A thermometer, reading 5◦C , is brought into a room whose temperature is 22◦C. One minute later the thermometer reading is 12◦C. How long does it take until the reading is practically 22◦C, say, 21.9◦C.\\
+\solve{
+    According to Newton's law of cooling    
+    \begin{align*}
+        \frac{dT}{dt} \alpha (T-T_A)       
+    \end{align*}
+    Temperature of the surrunding medium (i.e room) is 22$\textdegree$C
+    \begin{align*}
+        &\frac{dT}{dt}=k (T-22)\\        
+        \Rightarrow & \int_{}^{}\frac{dt}{(T-22)}=\int_{}^{}kdt\\
+        \Rightarrow & \int_{}^{}\frac{dt}{(T-22)}=\int_{}^{}kdt\\        
+        \Rightarrow & log(|T-22|)=k t+C\\     
+        \Rightarrow & T -22 = e^{kt+c}\\
+        \Rightarrow & T = ce^{kt}+22
+    \end{align*}
+    \text{Now At }$t=0,T=5\textdegree$C
+    \begin{align*}
+        & T = 22+ ce^{0}\\        
+        \Rightarrow & 5 = c+22\\
+        \Rightarrow & c = 5-22\\
+        \Rightarrow & c = -17
+    \end{align*}
+        $t=1 \text{min},T=12$C
+    \begin{align*}
+        & 12 = 22-17e^{k}\\        
+        \Rightarrow & 12 = 22-17e^{k}\\
+        \Rightarrow & -10 = -17e^{k}\\
+        \Rightarrow & k = ln|\frac{10}{17}|\\
+        \Rightarrow & k = -0.53062
+    \end{align*}
+        Hence at $T=22$ t=?
+    \begin{align*}        
+        &21.9 = 22+ -17e^{-0.53062t}\\        
+        \Rightarrow & -0.1 =-17e^{-0.53062t}\\
+        \Rightarrow &  0.1/17=e^{-0.53062t}\\
+        \Rightarrow &  t= \frac{  ln|\frac{0.1}{17}|}{-0.53062}\\
+        \therefore & t= 9.67 \text{ min}
+    \end{align*}
+}
+\textbf{e.} (Newton's Law of Cooling): The body of a murder victim was discovered at 11 : 00PM. The doctor took the temperature of the body at 11 : 30PM, which was 94.6◦F. He again took the temperature after 1 hour when it showed 93.4◦F, and noticed that the temperature of room was 70◦F. Estimate the time of murder (Normal temperature of human body is 98.6◦F).\\
+\solve{
+    According to Newton's law of cooling    
+    \begin{align*}
+        \frac{dT}{dt} \alpha (T-70)       
+    \end{align*}
+    \begin{align*}
+        &\frac{dT}{dt}=-\lambda (T-70)\\        
+        \Rightarrow & \int_{}^{}dt(T-70)=\int_{}^{}-\lambda dt\\
+        \Rightarrow & \int_{}^{}dt(T-70)=\int_{}^{}-\lambda dt\\        
+        \Rightarrow& log(|T-70|)=-\lambda t+C     
+    \end{align*}
+    \text{Now }$t=0,T=94.6  $
+    \begin{align*}
+        & log|94.6-70|=C\\        
+        \Rightarrow & C=loge(24.6)
+    \end{align*}
+        $t=1,T=93.4$
+    \begin{align*}
+       & log|93.4-70|=-\lambda+C\\
+        \Rightarrow & log(23.4)=\lambda+C\\        
+        \Rightarrow & \lambda=log(24.623.4)\\        
+        \Rightarrow & \lambda=log(123117)\\        
+        \therefore & \lambda=0.05
+    \end{align*}
+        $t=t,T=98.6$
+    \begin{align*}        
+        &log|98.6-70|=-0.05t+log|24.6|\\
+        \Rightarrow & log|143123|=0.05 t        \\
+        \Rightarrow & 0.15066=-0.05 t_1        \\
+        \therefore & t_1=-3.0132
+    \end{align*}
+    So, time of death was 3 hours before i.e., 8.30 pm(approx).
+    }
+% \textbf{f. (Current): Find the current I(t) in the RC circuit, assuming that E = 100 volts, C = 0.25 farad, R is variable according to $R = (200 - t)$ ohms when $0 \leq t \leq 200$ sec, R = 0 when $t > 200$.}\\
+% \solve{}
+\textbf{g. (Current): If a electromotive force of $160cos5t$ is impressed on a series circuit composed of a 20ohm resistor and a $10^{-1}$ H inductor, then find the steady state and transient current in the circuit.}\\
+\solve{
+    \begin{equation}
+        E_R + E_L = E
+    \end{equation}        
+    $E = 160cos5t$\\
+    $R =20ohm$\\
+    $L=10^{-1} H$\\
+    \textbf{
+        From equation 11
+        }
+    \begin{align*}
+        &IR + L\frac{dI}{dT} = E\\
+        \Rightarrow & \frac{R}{L}+\frac{dI}{dT} = \frac{E}{L}\\
+        \Rightarrow & \frac{20}{10^{-1}}+\frac{dI}{dT} = \frac{160cos5t}{10^{-1}}\\
+        \Rightarrow & I' + 200I = 1600cos5t
+    \end{align*}
+    which looks like
+    \begin{align*}
+        y'+p(x)y = r(x)
+    \end{align*}
+    \begin{align*}
+        I.F & =e^{\int_{}^{}p(x)dt} \\
+        & = e^{\int_{}^{}200dt} \\
+        & = e^{200t}
+    \end{align*}
+    The solution is
+    \begin{align*}
+        &I'e^{200t} + 200Ie^{200t} = 1600cos5t \cdot e^{200t}\\
+        \Rightarrow & (Ie^{200t})'= 1600cos5t \cdot e^{200t}\\
+    \end{align*}   
+    Integrating w.r.t t 
+    \begin{align*}
+         & Ie^{200t}= \int_{}^{}1600cos5t \cdot e^{200t}\\
+         \Rightarrow & I = e^{-200t} \cdot 1600\int_{}^{}cos5t \cdot e^{200t}\\
+         \Rightarrow & I
+    \end{align*} 
+}
+\textbf{h. Find and solve the model for drug injection into the bloodstream if, beginning at t = 0, a constant amount A gm/min is injected and the drug is simultaneously removed at a rate proportional to the amount of the drug present at time t.}\\
+\solve{
+    let the amoutn of the drug in the blood stream at any time be y.\\
+    Then according to the question is \\    
+    \begin{align*}
+        \frac{dy}{dt} = \text{the rate of change of amoutn of drug} = -kt\\        
+    \end{align*}
+    -ve sign indicates removal\\
+    k = constant of proportionality
+    \begin{align*}
+        & \frac{dy}{dt} = -kt\\
+        \Rightarrow & dy = -ktdt\\
+        \therefore & y(t) = \frac{-kt^2}{2}+c
+    \end{align*}
+    At t = 0 ,y = A
+    \begin{align*}
+        \Rightarrow  c &= A\\
+        \Rightarrow  y(t)& = A+\frac{-kt^2}{2}
+    \end{align*}
+    So at any time there is $A - \frac{kt^2}{2}$ g of drug in bloodstrea.\\
+    Total time ,$y=0 \Rightarrow \frac{kt^2}{2}=A \Rightarrow t = \sqrt[]{\frac{2A}{k}}$
+}
+\textbf{3. If $M(x, y)dx + N(x, y)dy = 0$ is any differential equation with $\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$ and $\frac{\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}}{M+N} = h(w)$ where $w = x - y$, then show that the integrating factor is $F(x, y) =e^{\int_{}^{}h(w)dw}$. Find the integrating factor and solve $(x + xy)dx + (y - xy)dy = 0$.}\\
+\solve{
+    The differential equation is,\\
+    $M(x,y)dx+N(x,y)dy = 0$\\
+    As the differential equation is not exact\\
+    Let F is the integrating factor so,
+    \begin{equation}
+        FM(x,y)dx+fN(x,y)dy =0 
+    \end{equation}
+    For the exact diff. eqn 
+    \begin{align*}
+        & \frac{\partial M}{\partial y} =\frac{\partial N}{\partial x}\\
+        \Rightarrow & \frac{\partial FM}{\partial y} =\frac{\partial FN}{\partial x}\\
+        \Rightarrow & F_y M -F_xN = F(N_x-M_y)\\
+    \end{align*}
+    \begin{equation}
+        M\frac{\partial f(x,y)}{\partial y}-N\frac{\partial F(x,y)}{\partial x} = F(\frac{\partial N}{\partial x} -\frac{\partial M}{\partial y})
+    \end{equation}
+    From eqn 12 and 13
+    \begin{align*}
+        & F_xN-F_yM = F_n(M+N)(x-y)\\
+        \Rightarrow & F_xN-F_yM = F_n(x-y)M+F_n(x-y)N
+    \end{align*}
+    Equating corresponding elements,
+    \begin{equation}
+        F_x=F_n(x-y)
+    \end{equation}
+    \begin{equation}
+        F_y=-F_n(x-y)
+    \end{equation}
+    Now Considering F(x-y) = F,
+    \begin{equation}
+        \frac{\partial F(x-y)}{\partial x} = F'(x-y)    
+    \end{equation}
+    \begin{equation}
+        \frac{\partial F(x-y)}{\partial x} = F'(x-y)    
+    \end{equation}
+    Equating 16,17,15,14
+    \begin{equation}
+        F'(x-y)=F_n(x-y)
+    \end{equation}
+    \begin{equation}
+        -F'(x-y)=F_n(x-y)
+    \end{equation}
+    From eqn 18
+    \begin{align*}
+        & \frac{\partial F(x-y)}{\partial (x-y)} = F_n(x-y)\\
+        \Rightarrow & \frac{1}{F} \partial F(x-y) = h(x-y)d(x-y)
+    \end{align*}
+    Integrating on both sides  
+    \begin{align*}
+        & ln(F(x-y)) = \int_{}^{}h(w)dw\\
+        \Rightarrow & F(x-y) = e^{\int_{}^{}h(w)dw}\\
+        & \text{Hence,} I.F = e^{\int_{}^{}h(w)dw}
+    \end{align*}
+    Again,
+    \begin{align*}
+        & (x+xy)dx+(y-xy)dy=0\\
+        & P = (x+xy), A = y-yx\\
+        & P_y = x, Q_x=y
+    \end{align*}
+    $P_y \neq Q_x$ (not exact)
+    $\frac{ \partial M/\partial y -\partial N/\partial x  }{M+N} = \frac{ x+y}{x+y+xy-xy} = \frac{x+y}{x+y}=1$\\
+    $I.F = e^{int_{}^{}d(x-u)} = e^{x-u}$\\
+    Multiplying by I.F
+    \begin{align*}
+        & e^{x-y}(x+xy)dx+e^{x-y}(y-xy)dy =0\\
+        & M = e^{x-y}(x+xy) ,N =e^{x-y}(y-xy)\\
+        \Rightarrow & \frac{\partial M}{\partial y} = xe^{x-y}(-1)+x(e^{x-y}+ye^{x-y}(-1))\\
+        \Rightarrow & \frac{\partial M}{\partial y} = -xye^{x-y}\\
+        & \frac{\partial N}{\partial x} = ye^{x-y}-(e^{x-y}+xe^{x-y})y\\
+        & \frac{\partial N}{\partial x} = -xye^{x-y}\\
+        \Rightarrow & \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} \text{which is exact}
+    \end{align*}
+    So, 
+    \begin{align*}
+        M &= \frac{\partial y}{\partial x}\\
+        & = e^{x-y}(x+xy)\\
+        \partial u& = (e^{x-y}(x+xy))dx
+    \end{align*}
+    Integrating on both sides,
+    \begin{align*}
+        & u = (x+xy) \int_{}^{}e^{x-y}dx - \int_{}^{}(1-y)e^{-xy}dx\\
+        \Rightarrow & u= (x+xy)e^{x-y} - e^{x-y}-ye^{x-y}+f(y)\\
+        \Rightarrow & u= (x+xy)e^{x-y} -(1+y) e^{x-y}+f(y)\\
+        \Rightarrow & \frac{\partial u}{\partial y} = -xe^{x-y} + x(e^{x-y}-ye^{x-y}) + e^{x-y}-(e^{x-y}-ye^{x-y})+f(y)\\
+        \Rightarrow & \frac{\partial u}{\partial y} = e^{x-y}(-x+x-xy)+e^{x-y}(1-1+y) + f'(y)\\
+        \Rightarrow & e^{x-y}(y-xy) = -e^{x-y}xy+ ye^{x-y}f'(y)\\
+        \Rightarrow & e^{x-y}(y-xy) = e^{x-y}(y-yx)+ f'(y)
+    \end{align*}
+    $f'(y)=0$\\
+    $f(y) =c$\\
+    $\therefore u(x,y) = e^{x-y}[x+xy-1-y]+c$ \text{is the required eqn}
+}
+\textbf{4. Find orthogonal trajectories for the following:}\\\\
+(a) $y =\sqrt[]{x + c}$\\
+\solve{
+    \begin{align*}
+        &y=\sqrt[]{x+c}\\
+        \Rightarrow & y^{2} = x+c\\
+        \Rightarrow & y^{2} -x-c=0\\
+        \Rightarrow & c = y^{2}-x\\
+        \Rightarrow & y' = \frac{d}{dx}(x+c)^{-1/2}\\
+        \Rightarrow & y' = \frac{1}{2}\frac{1}{\sqrt[]{x+c}}\\
+        \Rightarrow & y' = \frac{1}{2}\frac{1}{\sqrt[]{x+y^{2}-x}}\\
+        \Rightarrow & y' = \frac{1}{2y}=f(x,y)\\
+    \end{align*}
+    Now the orthogonal trajectories is given by
+    \begin{align*}
+        & y'= -\frac{1}{f(x,y)}\\
+        \Rightarrow & y' = -2y\\
+        \Rightarrow & \frac{y'}{y} = -2\\
+    \end{align*}
+    Now Integrating we get
+    \begin{align*}
+        & \int_{}^{} \frac{dy}{y} = \int_{}^{}-2dx\\
+        \Rightarrow & ln|y| = -2x+c\\
+        \therefore & ln|y| +2x=c
+    \end{align*}
+}
+(b) $(x-c)^{2} +y^2 = c^2$\\
+\solve{
+    \begin{align*}
+        & x^2-2cx+c^2 +y^2 = c^2\\
+        \Rightarrow & x^2-2cx+y^2=0\\
+        \Rightarrow & c =\frac{x^2+y^2}{2x}\\
+    \end{align*}
+    Also,
+    \begin{align*}
+        &x^2-2cx +y^2 =\\
+        \Rightarrow & y^2 = -x^2+2cx\\
+        \Rightarrow & y = \sqrt[]{2cx-x^2}\\
+        \Rightarrow & y' = \frac{d}{dx}(2cx-x^2)^{-1/2}\\
+        \Rightarrow & y'= -\frac{1}{2}\frac{1}{\sqrt[]{2cx-x^2}}(2c-2x)\\
+        \Rightarrow & y' = \frac{1}{2}\frac{1}{\sqrt[]{2x\frac{x^2+y^2}{2x}}-x^2}
+        \frac{
+            2(x^2+y^2)
+            }{2x}-2x\\
+            \Rightarrow & y'= \frac{2y^2-2x^2}{4xy}\\
+            \therefore & y' = \frac{y^2-x^2}{2xy}
+    \end{align*}
+    Now the orthogonal trajectories is given by
+    \begin{align*}
+        & y'= -\frac{1}{f(x,y)}\\
+        \Rightarrow & y' = \frac{2xy}{y^2-x^2}\\
+        \Rightarrow & \frac{dy}{dx} = \frac{2xy}{y^2-x^2}\\
+        \Rightarrow & -2xydx (x^2-y^2)dy =0
+    \end{align*}
+    Comparing above with $M(x,y)dx + N(x,y)dy = 0$
+    \begin{align*}
+        \frac{\partial M}{\partial y} = \frac{-2xy}{\partial y}=-2x\\
+        \frac{\partial N}{\partial x} = \frac{x^2-y^2}{\partial x}=2x\\
+    \end{align*}
+    Since $\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$ So the D.E is not exact
+    \begin{align*}
+        I.F. & = Ce^{\int_{}^{}Rdx}\\
+        & = Ce^{\int_{}^{} 
+        \frac{1}{M}
+        (\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y} )
+        dx}\\
+        & = e^{\frac{1}{-2xy} (2x+2x)dy }\\
+        & = e^{\frac{1}{2xy}4xdy}\\
+        & = e^{\frac{2}{y}dy}\\
+        & = e^{-2ln|y|}\\
+        & = y^{-2}\\
+        & = \frac{1}{y^{2}}
+    \end{align*}
+    So,
+    \begin{align*}
+        -\frac{2x}{y}dx + (\frac{x^2}{y^2}-2 )dy = 0
+    \end{align*}
+    The solution is
+    \begin{align*}
+        & u = \big[
+            \int_{}^{}Mdx+k(y)
+        \big]\\
+        \Rightarrow & u = \int_{}^{}\frac{-2x}{y}dx+k(y)\\
+        \Rightarrow & u = \frac{-x^2}{y}+k(y)\\
+    \end{align*}
+    Diff. partially w.r.t y 
+    \begin{align*}
+        \frac{\partial u}{\partial y} = \frac{x^2}{y}+k(y)\\
+        N = \frac{-x^2}{y}+\frac{dk}{dy}\\
+        (-1+\frac{-x^2}{y}) = \frac{-x^2}{y}+\frac{dk}{dy}\\
+        \frac{dk}{dy}=-1
+        Integrating w.r.t y
+        k = -y+c
+    \end{align*}
+    Hence,
+    \begin{align*}
+        & u = \frac{-x^2}{y}-y+c\\
+        \therefore & u = \frac{-x^2-y^2+cy}{y} \text{is required solution}
+    \end{align*}
+}
+(d)$\frac{x^2}{a}+\frac{y^2}{a-\lambda}=1$\\
+\solve{
+    \begin{align*}
+        \frac{x^2}{a}+\frac{y^2}{a-\lambda}=1\\
+    \end{align*}    
+    Differentiating w.r.t x
+    \begin{align*}
+        & \frac{2x}{a}+\frac{1}{(a-\lambda)}2y \cdot \frac{dy}{dx}            \\
+        \Rightarrow & \frac{2y}{(a-\lambda)} \cdot \frac{dy}{dx} =\frac{-2x}{a}   \\
+        \Rightarrow & \frac{dy}{dx}= \frac{-2x}{a}\cdot \frac{a-\lambda}{2y}\\
+        \Rightarrow & \frac{dy}{dx}= \frac{-x}{y}\cdot \frac{a-\lambda}{a}\\
+        \Rightarrow & y' = \frac{x}{y}\frac{(\lambda-a)}{a}=f(x,y)
+    \end{align*}
+    The orthogonal trajectories is given by
+    \begin{align*}
+        & y'= -\frac{1}{f(x,y)}\\
+        \Rightarrow & y' = \frac{y}{x}\frac{a}{\lambda-a}\\
+        \Rightarrow & \frac{dy}{dx}=\frac{y}{x}\frac{a}{\lambda-a}\\
+        \Rightarrow & \frac{dy}{y} = \frac{dx}{x}\cdot \frac{a}{\lambda-a}
+    \end{align*}
+    Integrating
+    $$
+    \therefore lny = \frac{a}{ \lambda -a} lnx+c
+    \text{ is the required solution.}
+    $$
+}
+\end{document}
